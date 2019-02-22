@@ -118,9 +118,7 @@ public class LoginActivity extends AppCompatActivity {
                 Log.d("FACEBOOK", error.toString());
             }
 
-            public void sendIntent(StringBuffer buffer){
-                Intent i=new Intent(this, MainActivity.class);
-            }
+            
 
         });
 
