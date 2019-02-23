@@ -1,4 +1,4 @@
-package in.ac.ksit.android.fitargot.Actvity;
+package in.ac.ksit.android.fitargot.Activity;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -13,6 +13,20 @@ public class MainActivity extends AppCompatActivity {
 
         return true;
     }
+
+
+    public void bind_view(){
+
+
+
+    }
+
+
+    public void bind_data(){
+
+
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
 
         }else{
+
 
 
         }

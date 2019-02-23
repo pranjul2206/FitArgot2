@@ -1,9 +1,8 @@
-package in.ac.ksit.android.fitargot.Actvity;
+package in.ac.ksit.android.fitargot.Activity;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
 
 import in.ac.ksit.android.fitargot.R;
 
