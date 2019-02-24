@@ -49,9 +49,12 @@ import in.ac.ksit.android.fitargot.Network.Model.Result;
 import in.ac.ksit.android.fitargot.R;
 import in.ac.ksit.android.fitargot.Util.PermissionUtil;
 import me.itangqi.waveloadingview.WaveLoadingView;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import technolifestyle.com.imageslider.FlipperLayout;
+import technolifestyle.com.imageslider.FlipperView;
 
 
 public class MainActivity extends AppCompatActivity implements OnMapReadyCallback,GoogleApiClient.ConnectionCallbacks,
@@ -73,6 +76,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     RelativeLayout r,r1,r2,r3;
     ImageView step,calories,caloriesin,improvement,SelectedPic;
     String s[]={"steps","calories","something","improvements"};
+    FlipperLayout flipper;
 
     {
         googleApis=ApiClient.getClient(Constants.PLACE_BASE_PATH).create(GoogleApis.class);
@@ -108,6 +112,10 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         waveLoadingView2=(WaveLoadingView)findViewById(R.id.waveLoadingView2);
         waveLoadingView3=(WaveLoadingView)findViewById(R.id.waveLoadingView3);
         waveLoadingView4=(WaveLoadingView)findViewById(R.id.waveLoadingView4);
+        //--------SLIDE IMAGE
+        flipper=(FlipperLayout)findViewById(R.id.flipper);
+        setLayout();
+        //--------SLIDE IMAGE
 
         //declaration of variables pranjul 1
 
@@ -187,6 +195,26 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         //java Oncreate code code pranjul 1
 
 
+    }
+    private void setLayout()
+    {
+        String url[]=new String[]{
+                "https://cdn-images-1.medium.com/max/1600/1*6Ak3LPymYWuXKrhPpa1SAA.png",
+                "https://bjsm.bmj.com/content/bjsports/early/2017/09/04/bjsports-2017-097625/F1.large.jpg",
+                "https://i.ytimg.com/vi/SKYtrKQ0-Qs/maxresdefault.jpg"
+        };
+        for( i=0;i<3;i++)
+        {
+            FlipperView view =new FlipperView(getBaseContext());
+            view.setImageUrl(url[i]);
+            flipper.addFlipperView(view);
+            view.setOnFlipperClickListener(new FlipperView.OnFlipperClickListener() {
+                @Override
+                public void onFlipperClick(FlipperView flipperView) {
+                    t.setText("image" + i);
+                }
+            });
+        }
     }
 
 
