@@ -7,6 +7,7 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".Activity.MainActivity"
     tools:showIn="@layout/activity_main"
+    android:orientation="vertical"
     xmlns:plainpie="http://schemas.android.com/apk/res-auto">
 
         <LinearLayout
@@ -18,7 +19,7 @@
             android:layout_marginStart="0dp"
             android:layout_marginTop="0dp"
             android:gravity="center"
-            android:orientation="horizontal"
+            android:orientation="vertical"
             >
 
             <android.support.v7.widget.CardView
@@ -333,8 +334,117 @@
 
                 </RelativeLayout>
             </android.support.v7.widget.CardView>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                android:gravity="center"
+                android:orientation="horizontal">
+                <technolifestyle.com.imageslider.FlipperLayout
+                    android:id="@+id/flipper"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp">
+
+                </technolifestyle.com.imageslider.FlipperLayout>
+            </LinearLayout>
+            <!--colum 1 -->
+            <LinearLayout
+                android:clipToPadding="false"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <android.support.v7.widget.CardView
+                    android:transitionName="transition1"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:id="@+id/card1"
+                    android:layout_width="170dp"
+                    android:layout_height="190dp"
+                    android:layout_margin="1dp">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:gravity="center">
+
+                        <pl.droidsonroids.gif.GifImageView
+                            android:id="@+id/gifView1"
+                            android:layout_width="110dp"
+                            android:layout_height="110dp"
+                            android:background="@drawable/colourtile1"
+                            android:src="@drawable/source"
+                            android:textAlignment="center" />
+                        <TextView
+                            android:id="@+id/card1text1"
+                            android:transitionName="transition0"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textStyle="bold"
+                            android:layout_marginTop="10dp"
+                            android:text="Activity"/>
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/lightgray"
+                            android:layout_margin="10dp"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="Click to check your activities"
+                            android:padding="5dp"
+                            android:textColor="@android:color/darker_gray"/>
+
+                    </LinearLayout>
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:id="@+id/card2"
+                    android:layout_width="160dp"
+                    android:layout_height="190dp"
+                    android:layout_margin="10dp">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:gravity="center">
+
+                        <pl.droidsonroids.gif.GifImageView
+                            android:id="@+id/gifView2"
+                            android:layout_width="110dp"
+                            android:layout_height="110dp"
+                            android:background="@drawable/colourtile2"
+                            android:src="@drawable/running"
+                            android:textAlignment="center" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textStyle="bold"
+                            android:layout_marginTop="10dp"
+                            android:text="Exercies"/>
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/lightgray"
+                            android:layout_margin="10dp"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="Check your bank activities"
+                            android:padding="5dp"
+                            android:textColor="@android:color/darker_gray"/>
+
+                    </LinearLayout>
+                </android.support.v7.widget.CardView>
 
 
+            </LinearLayout>
+            <!-- column2 -->
         </LinearLayout>
+
 
 </android.support.v4.widget.NestedScrollView>
