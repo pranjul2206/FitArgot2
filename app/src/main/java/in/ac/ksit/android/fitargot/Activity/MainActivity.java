@@ -29,6 +29,8 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptor;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MapStyleOptions;
@@ -39,9 +41,17 @@ import java.util.ArrayList;
 
 import az.plainpie.PieView;
 import az.plainpie.animation.PieAngleAnimation;
+import in.ac.ksit.android.fitargot.Constants;
+import in.ac.ksit.android.fitargot.Network.ApiClient;
+import in.ac.ksit.android.fitargot.Network.GoogleApis;
+import in.ac.ksit.android.fitargot.Network.Model.PlaceModel;
+import in.ac.ksit.android.fitargot.Network.Model.Result;
 import in.ac.ksit.android.fitargot.R;
 import in.ac.ksit.android.fitargot.Util.PermissionUtil;
 import me.itangqi.waveloadingview.WaveLoadingView;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 
 public class MainActivity extends AppCompatActivity implements OnMapReadyCallback,GoogleApiClient.ConnectionCallbacks,
@@ -54,6 +64,8 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     private PermissionUtil permissionUtil;
     private GoogleApiClient googleApiClient;
     int i=0;
+    private static final  String TAG=MainActivity.class.getSimpleName();
+    GoogleApis googleApis=null;
     //declaration of variables pranjul1
 
     WaveLoadingView waveLoadingView2,waveLoadingView3,waveLoadingView4;
@@ -62,13 +74,18 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     ImageView step,calories,caloriesin,improvement,SelectedPic;
     String s[]={"steps","calories","something","improvements"};
 
+    {
+        googleApis=ApiClient.getClient(Constants.PLACE_BASE_PATH).create(GoogleApis.class);
+    }
     //declaration of variables pranjul1
     private boolean isLoggedIn(){
 
         return true;
     }
 
+    private void init_objects(){
 
+    }
     public void bind_view(){
         mDrawerLayout=findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
@@ -207,20 +224,62 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                     LatLng latLng=new LatLng(location.getLatitude(),location.getLongitude());
                     gMap.addMarker(new MarkerOptions().position(latLng).title("CurrentLocation"));
 
-                    CameraPosition cameraPosition = new CameraPosition.Builder()
+                    final CameraPosition cameraPosition = new CameraPosition.Builder()
                             .target(new LatLng(location.getLatitude(),location.getLongitude()))
                             .zoom(17)
                             .tilt(67.5f)
                             .build();
 //                    gMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng,
 //                            10));
-                    gMap.moveCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
+
+
+                    if(notInKnownLocation()) {
+                        googleApis.getNearbyPlaces(location.getLatitude() + "," + location.getLongitude(), 2000, "park", "AIzaSyB4KfQQbmSWuwpPgOh3Y5-AKE_uUQAZkZk").enqueue(new Callback<PlaceModel>() {
+                            @Override
+                            public void onResponse(Call<PlaceModel> call, Response<PlaceModel> response) {
+                                Log.d(TAG, "number of response" + response.body().getResults().size());
+
+                                int count = 0;
+
+                                for (Result res : response.body().getResults()) {
+                                    if (count > 10)
+                                        break;
+                                    count++;
+
+                                    in.ac.ksit.android.fitargot.Network.Model.Location location1 = res.getGeometry().getLocation();
+                                    LatLng latLng1 = new LatLng(location1.getLat(), location1.getLng());
+                                    gMap.addMarker(new MarkerOptions().position(latLng1)
+                                            .title(res.getName()))
+                                            .setIcon(BitmapDescriptorFactory.fromResource(R.drawable.park));
+                                    Log.d(TAG, "Park name" + res.getName());
+
+
+                                }
+                                gMap.moveCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
+
+                            }
+
+                            @Override
+                            public void onFailure(Call<PlaceModel> call, Throwable t) {
+
+                                Log.e(TAG, "PLACE API FAILURE" + t.toString());
+                                Log.e(TAG, "eRROR" + call.request().url());
+                            }
+                        });
+                    }
+                    else{
+
+                    }
 
                 }
             }
         });
 
 
+    }
+
+    private boolean notInKnownLocation() {
+    return true;
     }
 
     @Override
