@@ -1,20 +1,68 @@
 package in.ac.ksit.android.fitargot.Activity;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.content.res.Resources;
+import android.location.Location;
+import android.os.Build;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.location.LocationListener;
+import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.CameraPosition;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MapStyleOptions;
+import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.tasks.OnSuccessListener;
+
+import java.util.ArrayList;
+
+import az.plainpie.PieView;
+import az.plainpie.animation.PieAngleAnimation;
 import in.ac.ksit.android.fitargot.R;
+import in.ac.ksit.android.fitargot.Util.PermissionUtil;
+import me.itangqi.waveloadingview.WaveLoadingView;
 
-public class MainActivity extends AppCompatActivity {
 
-
+public class MainActivity extends AppCompatActivity implements OnMapReadyCallback,GoogleApiClient.ConnectionCallbacks,
+        GoogleApiClient.OnConnectionFailedListener, LocationListener {
+    static ArrayList<String> permissions=new ArrayList<String>();
     private DrawerLayout mDrawerLayout;
+    private NavigationView navigationView;
+    private SupportMapFragment mapFragment;
+    private GoogleMap  gMap;
+    private PermissionUtil permissionUtil;
+    private GoogleApiClient googleApiClient;
+    int i=0;
+    //declaration of variables pranjul1
 
+    WaveLoadingView waveLoadingView2,waveLoadingView3,waveLoadingView4;
+    TextView t;
+    RelativeLayout r,r1,r2,r3;
+    ImageView step,calories,caloriesin,improvement,SelectedPic;
+    String s[]={"steps","calories","something","improvements"};
 
+    //declaration of variables pranjul1
     private boolean isLoggedIn(){
 
         return true;
@@ -22,8 +70,37 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void bind_view(){
+        mDrawerLayout=findViewById(R.id.drawer_layout);
+        navigationView = findViewById(R.id.nav_view);
+        mapFragment= (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
+        //declaration of variables pranjul 1
 
-        NavigationView navigationView = findViewById(R.id.nav_view);
+        r=(RelativeLayout)findViewById(R.id.option1bubble1);
+        r1=(RelativeLayout)findViewById(R.id.option2bubble2);
+        r2=(RelativeLayout)findViewById(R.id.option3bubble3);
+        r3=(RelativeLayout)findViewById(R.id.option4bubble4);
+        r.setVisibility(View.VISIBLE);
+        r1.setVisibility(View.INVISIBLE);
+        r2.setVisibility(View.INVISIBLE);
+        r3.setVisibility(View.INVISIBLE);
+        step=(ImageView)findViewById(R.id.stepsbutton);
+        calories=(ImageView)findViewById(R.id.caloriesbutton);
+        caloriesin=(ImageView)findViewById(R.id.somethingbutton);
+        improvement=(ImageView)findViewById(R.id.improvementsbutton);
+        t=(TextView)findViewById(R.id.leftover);
+        waveLoadingView2=(WaveLoadingView)findViewById(R.id.waveLoadingView2);
+        waveLoadingView3=(WaveLoadingView)findViewById(R.id.waveLoadingView3);
+        waveLoadingView4=(WaveLoadingView)findViewById(R.id.waveLoadingView4);
+
+        //declaration of variables pranjul 1
+
+
+    }
+
+
+    public void bind_action(){
+
+
         navigationView.setNavigationItemSelectedListener(
                 new NavigationView.OnNavigationItemSelectedListener() {
                     @Override
@@ -40,10 +117,11 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
 
-    }
-
-
-    public void bind_data(){
+        mapFragment.getMapAsync(this);
+        googleApiClient = new GoogleApiClient.Builder(this).
+                addApi(LocationServices.API).
+                addConnectionCallbacks(this).
+                addOnConnectionFailedListener(this).build();
 
 
     }
@@ -52,6 +130,17 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        permissions.add(Manifest.permission.ACCESS_FINE_LOCATION);
+        permissions.add(Manifest.permission.ACCESS_COARSE_LOCATION);
+
+        permissionUtil=PermissionUtil.getInstance(getApplicationContext());
+        ArrayList<String> permissionToRequest=permissionUtil.permissionsToRequest(permissions);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            if(permissionToRequest.size() > 0)
+                requestPermissions(permissionToRequest.toArray(new String[permissionToRequest.size()]),100);
+
+        }
+
         if(!isLoggedIn()){
 
             Intent intent=new Intent(this,LoginActivity.class);
@@ -59,10 +148,183 @@ public class MainActivity extends AppCompatActivity {
 
         }else{
 
+                bind_view();
+                bind_action();
+        }
+
+        //java Oncreate code code pranjul 1
+        PieView animatedPie = (PieView) findViewById(R.id.animated_pie_view_1);
+
+        PieAngleAnimation animation = new PieAngleAnimation(animatedPie);
+        animation.setDuration(1000); //This is the duration of the animation in millis
+        animatedPie.startAnimation(animation);
+        waveLoadingView2.setProgressValue(90);
+        waveLoadingView2.setBottomTitle("");
+        waveLoadingView2.setCenterTitle(String.format("%d%%",90));
+        waveLoadingView2.setTopTitle("");
+
+        step.setOnClickListener(this);
+        caloriesin.setOnClickListener(this);
+        calories.setOnClickListener(this);
+        improvement.setOnClickListener(this);
+        //java Oncreate code code pranjul 1
+
+
+    }
+
+
+    @Override
+    public void onMapReady(GoogleMap googleMap) {
+        gMap=googleMap;
+        gMap.getUiSettings().setCompassEnabled(false);
+        gMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+
+        try {
+            boolean success = googleMap.setMapStyle(
+                    MapStyleOptions.loadRawResourceStyle(
+                            this, R.raw.map_style));
+
+        }catch (Resources.NotFoundException e){
+
+            Log.e("ERRIR","Resource not found");
+        }
+
+        if (ActivityCompat.checkSelfPermission(this,
+                Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
+                &&  ActivityCompat.checkSelfPermission(this,
+                Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            return;
+        }
+
+        // Permissions ok, we get last location
+        FusedLocationProviderClient locationProviderClient = LocationServices.getFusedLocationProviderClient(this);
+        locationProviderClient.getLastLocation().addOnSuccessListener(new OnSuccessListener<Location>() {
+            @Override
+            public void onSuccess(Location location) {
+                if(location!=null)
+                {
+
+                    LatLng latLng=new LatLng(location.getLatitude(),location.getLongitude());
+                    gMap.addMarker(new MarkerOptions().position(latLng).title("CurrentLocation"));
+
+                    CameraPosition cameraPosition = new CameraPosition.Builder()
+                            .target(new LatLng(location.getLatitude(),location.getLongitude()))
+                            .zoom(17)
+                            .tilt(67.5f)
+                            .bearing(314)
+                            .build();
+//                    gMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng,
+//                            10));
+                    gMap.moveCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
+
+                }
+            }
+        });
+
+
+    }
+    //code------------
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.stepsbutton:
+                step.setImageResource(R.drawable.xsteps);
+                PieView animatedPie = (PieView) findViewById(R.id.animated_pie_view_1);
+
+                PieAngleAnimation animation = new PieAngleAnimation(animatedPie);
+                animation.setDuration(1000); //This is the duration of the animation in millis
+                animatedPie.startAnimation(animation);
+                t.setText("52 more steps");
+                r.setVisibility(View.VISIBLE);
+                r1.setVisibility(View.INVISIBLE);
+                r2.setVisibility(View.INVISIBLE);
+                r3.setVisibility(View.INVISIBLE);
+                break;
+            case R.id.caloriesbutton : calories.setImageResource(R.drawable.xcalories);
+                t.setText("114 more calories");
+                r.setVisibility(View.INVISIBLE);
+                r1.setVisibility(View.VISIBLE);
+                r2.setVisibility(View.INVISIBLE);
+                r3.setVisibility(View.INVISIBLE);
+                waveLoadingView2.setProgressValue(40);
+                waveLoadingView2.setBottomTitle("");
+                waveLoadingView2.setCenterTitle(String.format("%d%%",40));
+                waveLoadingView2.setTopTitle("");
+                break;
+            case R.id.somethingbutton :
+                caloriesin.setImageResource(R.drawable.xsomething);
+                t.setText("223 more");
+                r.setVisibility(View.INVISIBLE);
+                r1.setVisibility(View.INVISIBLE);
+                r2.setVisibility(View.VISIBLE);
+                r3.setVisibility(View.INVISIBLE);
+                waveLoadingView3.setProgressValue(52);
+                waveLoadingView3.setBottomTitle("");
+                waveLoadingView3.setCenterTitle(String.format("%d%%",52));
+                waveLoadingView3.setTopTitle("");
+                break;
+            case R.id.improvementsbutton :
+                improvement.setImageResource(R.drawable.ximprovements);
+                t.setText("DEFEAT PRANJUL");
+                r.setVisibility(View.INVISIBLE);
+                r1.setVisibility(View.INVISIBLE);
+                r2.setVisibility(View.INVISIBLE);
+                r3.setVisibility(View.VISIBLE);
+                waveLoadingView4.setProgressValue(12);
+                waveLoadingView4.setBottomTitle("");
+                waveLoadingView4.setCenterTitle(String.format("%d",12));
+                waveLoadingView4.setTopTitle("");
+                break;
 
 
         }
+    }
+    //code------------
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        if (googleApiClient != null) {
+            googleApiClient.connect();
+        }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+        if (googleApiClient != null  &&  googleApiClient.isConnected()) {
+            LocationServices.FusedLocationApi.removeLocationUpdates(googleApiClient, this);
+            googleApiClient.disconnect();
+        }
+    }
+
+    @Override
+    public void onConnected(@Nullable Bundle bundle) {
+
+
+
+    }
+
+    @Override
+    public void onConnectionSuspended(int i) {
+
+    }
+
+    @Override
+    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
+
+    }
+
+    @Override
+    public void onLocationChanged(Location location) {
 
     }
 }
