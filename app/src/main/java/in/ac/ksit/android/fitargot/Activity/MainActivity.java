@@ -150,7 +150,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
             public void onSuccess(Location location) {
                 if(location!=null)
                 {
-
+                    Log.d(MainActivity.class.getSimpleName(),"lattitude "+location.getLatitude());
                     LatLng latLng=new LatLng(location.getLatitude(),location.getLongitude());
                     gMap.addMarker(new MarkerOptions().position(latLng).title("CurrentLocation"));
 
@@ -158,7 +158,6 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                             .target(new LatLng(location.getLatitude(),location.getLongitude()))
                             .zoom(17)
                             .tilt(67.5f)
-                            .bearing(314)
                             .build();
 //                    gMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng,
 //                            10));
