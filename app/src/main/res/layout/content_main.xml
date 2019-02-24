@@ -1,6 +1,354 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout
 
-</android.support.constraint.ConstraintLayout>
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        >
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/bubble"
+            android:layout_width="match_parent"
+            android:layout_height="270dp"
+            android:layout_margin="10dp"
+            android:clickable="true"
+            >
+
+            <LinearLayout
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:paddingTop="25dp">
+                <android.support.v7.widget.CardView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:paddingTop="2dp"
+                    android:elevation="30dp"
+                    android:layout_margin="5dp"
+                    android:gravity="center"
+                    app:cardCornerRadius="25dp"
+                    >
+                    <ImageView
+                        android:id="@+id/stepsbutton"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/steps" />
+                </android.support.v7.widget.CardView>
+                <android.support.v7.widget.CardView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:paddingTop="2dp"
+                    android:elevation="30dp"
+                    android:layout_margin="5dp"
+                    android:gravity="center"
+                    app:cardCornerRadius="25dp"
+                    >
+
+                    <ImageView
+                        android:id="@+id/caloriesbutton"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/calories" />
+                </android.support.v7.widget.CardView>
+                <android.support.v7.widget.CardView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:paddingTop="2dp"
+                    android:elevation="30dp"
+                    android:layout_margin="5dp"
+                    android:gravity="center"
+                    app:cardCornerRadius="25dp"
+                    >
+
+                    <ImageView
+                        android:id="@+id/somethingbutton"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/something" />
+                </android.support.v7.widget.CardView>
+                <android.support.v7.widget.CardView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:paddingTop="2dp"
+                    android:elevation="30dp"
+                    android:layout_margin="5dp"
+                    android:gravity="center"
+                    app:cardCornerRadius="25dp"
+                    >
+
+                    <ImageView
+                        android:id="@+id/improvementsbutton"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/improvements" />
+                </android.support.v7.widget.CardView>
+            </LinearLayout>
+            <!-- FRIEND PROFILE PIC -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:paddingLeft="275dp"
+                android:paddingTop="15dp">
+
+                <android.support.v7.widget.CardView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    app:cardCornerRadius="25dp"
+                    >
+
+                    <ImageView
+                        android:id="@+id/friendprofilepic"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:paddingRight="10dp"
+
+                        android:src="@drawable/friendprofile" />
+                </android.support.v7.widget.CardView>
+                <TextView
+                    android:id="@+id/leftover"
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:text="52 more" />
+
+
+            </LinearLayout>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <!-- bubble is here!! -->
+                <RelativeLayout
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <RelativeLayout
+                        android:id="@+id/option1bubble1"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp">
+
+                        <me.itangqi.waveloadingview.WaveLoadingView
+                            android:id="@+id/waveLoadingView1"
+                            android:layout_width="150dp"
+                            android:layout_height="150dp"
+                            android:layout_alignParentStart="true"
+                            android:layout_alignParentTop="true"
+                            android:layout_marginStart="108dp"
+                            app:wlv_borderColor="@color/white"
+                            app:wlv_borderWidth="3dp"
+
+                            app:wlv_round_rectangle="true"
+                            app:wlv_shapeType="circle"
+                            app:wlv_titleBottomColor="@color/colorAccent"
+                            app:wlv_titleBottomSize="24sp"
+
+                            app:wlv_titleBottomStrokeColor="@color/colorAccent"
+                            app:wlv_titleBottomStrokeWidth="1dp"
+                            app:wlv_titleCenterColor="@color/colorAccent"
+                            app:wlv_titleCenterSize="24sp"
+
+                            app:wlv_titleCenterStrokeColor="@color/colorAccent"
+                            app:wlv_titleCenterStrokeWidth="1dp"
+                            app:wlv_titleTopColor="@color/colorAccent"
+                            app:wlv_titleTopSize="24sp"
+
+                            app:wlv_titleTopStrokeColor="@color/colorAccent"
+                            app:wlv_titleTopStrokeWidth="1dp"
+
+                            app:wlv_triangle_direction="north"
+                            app:wlv_waveAmplitude="70"
+                            app:wlv_waveColor="@color/lighblue" />
+
+                        <TextView
+                            android:id="@+id/option1text1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:layout_alignParentBottom="true"
+                            android:layout_marginStart="131dp"
+                            android:layout_marginBottom="17dp"
+                            android:text="253 steps taken"
+                            android:textStyle="bold" />
+                    </RelativeLayout>
+
+                    <!-- bubble was here!! -->
+                    <RelativeLayout
+                        android:id="@+id/option2bubble2"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp">
+
+                        <me.itangqi.waveloadingview.WaveLoadingView
+                            android:id="@+id/waveLoadingView2"
+                            android:layout_width="150dp"
+                            android:layout_height="150dp"
+                            android:layout_alignParentStart="true"
+                            android:layout_alignParentTop="true"
+                            android:layout_marginStart="108dp"
+                            app:wlv_borderColor="@color/white"
+                            app:wlv_borderWidth="3dp"
+
+                            app:wlv_round_rectangle="true"
+                            app:wlv_shapeType="circle"
+                            app:wlv_titleBottomColor="@color/colorAccent"
+                            app:wlv_titleBottomSize="24sp"
+
+                            app:wlv_titleBottomStrokeColor="@color/colorAccent"
+                            app:wlv_titleBottomStrokeWidth="1dp"
+                            app:wlv_titleCenterColor="@color/colorAccent"
+                            app:wlv_titleCenterSize="24sp"
+
+                            app:wlv_titleCenterStrokeColor="@color/colorAccent"
+                            app:wlv_titleCenterStrokeWidth="1dp"
+                            app:wlv_titleTopColor="@color/colorAccent"
+                            app:wlv_titleTopSize="24sp"
+
+                            app:wlv_titleTopStrokeColor="@color/colorAccent"
+                            app:wlv_titleTopStrokeWidth="1dp"
+
+                            app:wlv_triangle_direction="north"
+                            app:wlv_waveAmplitude="70"
+                            app:wlv_waveColor="@color/lightyellow" />
+
+                        <TextView
+                            android:id="@+id/option2text2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:layout_alignParentBottom="true"
+                            android:layout_marginStart="131dp"
+                            android:layout_marginBottom="17dp"
+                            android:text="124 calories burnt"
+                            android:textStyle="bold" />
+
+                        <!-- second bubble was here -->
+
+                    </RelativeLayout>
+                    <RelativeLayout
+                        android:id="@+id/option3bubble3"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp">
+
+                        <me.itangqi.waveloadingview.WaveLoadingView
+                            android:id="@+id/waveLoadingView3"
+                            android:layout_width="150dp"
+                            android:layout_height="150dp"
+                            android:layout_alignParentStart="true"
+                            android:layout_alignParentTop="true"
+                            android:layout_marginStart="108dp"
+                            app:wlv_borderColor="@color/darkpurple"
+                            app:wlv_borderWidth="3dp"
+
+                            app:wlv_round_rectangle="true"
+                            app:wlv_shapeType="circle"
+                            app:wlv_titleBottomColor="@color/colorAccent"
+                            app:wlv_titleBottomSize="24sp"
+
+                            app:wlv_titleBottomStrokeColor="@color/colorAccent"
+                            app:wlv_titleBottomStrokeWidth="1dp"
+                            app:wlv_titleCenterColor="@color/colorAccent"
+                            app:wlv_titleCenterSize="24sp"
+
+                            app:wlv_titleCenterStrokeColor="@color/colorAccent"
+                            app:wlv_titleCenterStrokeWidth="1dp"
+                            app:wlv_titleTopColor="@color/colorAccent"
+                            app:wlv_titleTopSize="24sp"
+
+                            app:wlv_titleTopStrokeColor="@color/colorAccent"
+                            app:wlv_titleTopStrokeWidth="1dp"
+
+                            app:wlv_triangle_direction="north"
+                            app:wlv_waveAmplitude="70"
+                            app:wlv_waveColor="@color/lightpurple" />
+
+                        <TextView
+                            android:id="@+id/option3text3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:layout_alignParentBottom="true"
+                            android:layout_marginStart="131dp"
+                            android:layout_marginBottom="17dp"
+                            android:text="173 calories taken"
+                            android:textStyle="bold" />
+
+                        <!-- third bubble was here -->
+
+                    </RelativeLayout>
+                    <RelativeLayout
+                        android:id="@+id/option4bubble4"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp">
+
+                        <me.itangqi.waveloadingview.WaveLoadingView
+                            android:id="@+id/waveLoadingView4"
+                            android:layout_width="150dp"
+                            android:layout_height="150dp"
+                            android:layout_alignParentStart="true"
+                            android:layout_alignParentTop="true"
+                            android:layout_marginStart="108dp"
+                            app:wlv_borderColor="@color/darkred"
+                            app:wlv_borderWidth="3dp"
+
+                            app:wlv_round_rectangle="true"
+                            app:wlv_shapeType="circle"
+                            app:wlv_titleBottomColor="@color/colorAccent"
+                            app:wlv_titleBottomSize="24sp"
+
+                            app:wlv_titleBottomStrokeColor="@color/colorAccent"
+                            app:wlv_titleBottomStrokeWidth="1dp"
+                            app:wlv_titleCenterColor="@color/colorAccent"
+                            app:wlv_titleCenterSize="24sp"
+
+                            app:wlv_titleCenterStrokeColor="@color/colorAccent"
+                            app:wlv_titleCenterStrokeWidth="1dp"
+                            app:wlv_titleTopColor="@color/colorAccent"
+                            app:wlv_titleTopSize="24sp"
+
+                            app:wlv_titleTopStrokeColor="@color/colorAccent"
+                            app:wlv_titleTopStrokeWidth="1dp"
+
+                            app:wlv_triangle_direction="north"
+                            app:wlv_waveAmplitude="70"
+                            app:wlv_waveColor="@color/lightRed" />
+
+                        <TextView
+                            android:id="@+id/option4text4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:layout_alignParentBottom="true"
+                            android:layout_marginStart="131dp"
+                            android:layout_marginBottom="17dp"
+                            android:text="49 more calories"
+                            android:textStyle="bold" />
+
+                        <!-- fourth bubble was here -->
+
+                    </RelativeLayout>
+                </RelativeLayout>
+
+            </RelativeLayout>
+        </android.support.v7.widget.CardView>
+
+
+    </LinearLayout>
+
+</RelativeLayout>
