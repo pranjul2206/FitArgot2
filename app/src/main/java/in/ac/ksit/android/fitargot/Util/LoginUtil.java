@@ -27,4 +27,5 @@ public class LoginUtil {
     public String getName() {
         return name;
     }
+
 }
