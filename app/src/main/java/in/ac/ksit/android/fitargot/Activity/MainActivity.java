@@ -15,6 +15,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -33,12 +37,15 @@ import com.google.android.gms.tasks.OnSuccessListener;
 
 import java.util.ArrayList;
 
+import az.plainpie.PieView;
+import az.plainpie.animation.PieAngleAnimation;
 import in.ac.ksit.android.fitargot.R;
 import in.ac.ksit.android.fitargot.Util.PermissionUtil;
+import me.itangqi.waveloadingview.WaveLoadingView;
 
 
 public class MainActivity extends AppCompatActivity implements OnMapReadyCallback,GoogleApiClient.ConnectionCallbacks,
-        GoogleApiClient.OnConnectionFailedListener, LocationListener {
+        GoogleApiClient.OnConnectionFailedListener, LocationListener,View.OnClickListener {
     static ArrayList<String> permissions=new ArrayList<String>();
     private DrawerLayout mDrawerLayout;
     private NavigationView navigationView;
@@ -46,7 +53,16 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     private GoogleMap  gMap;
     private PermissionUtil permissionUtil;
     private GoogleApiClient googleApiClient;
+    int i=0;
+    //declaration of variables pranjul1
 
+    WaveLoadingView waveLoadingView2,waveLoadingView3,waveLoadingView4;
+    TextView t;
+    RelativeLayout r,r1,r2,r3;
+    ImageView step,calories,caloriesin,improvement,SelectedPic;
+    String s[]={"steps","calories","something","improvements"};
+
+    //declaration of variables pranjul1
     private boolean isLoggedIn(){
 
         return true;
@@ -57,6 +73,26 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         mDrawerLayout=findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
         mapFragment= (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
+        //declaration of variables pranjul 1
+
+        r=(RelativeLayout)findViewById(R.id.option1bubble1);
+        r1=(RelativeLayout)findViewById(R.id.option2bubble2);
+        r2=(RelativeLayout)findViewById(R.id.option3bubble3);
+        r3=(RelativeLayout)findViewById(R.id.option4bubble4);
+        r.setVisibility(View.VISIBLE);
+        r1.setVisibility(View.INVISIBLE);
+        r2.setVisibility(View.INVISIBLE);
+        r3.setVisibility(View.INVISIBLE);
+        step=(ImageView)findViewById(R.id.stepsbutton);
+        calories=(ImageView)findViewById(R.id.caloriesbutton);
+        caloriesin=(ImageView)findViewById(R.id.somethingbutton);
+        improvement=(ImageView)findViewById(R.id.improvementsbutton);
+        t=(TextView)findViewById(R.id.leftover);
+        waveLoadingView2=(WaveLoadingView)findViewById(R.id.waveLoadingView2);
+        waveLoadingView3=(WaveLoadingView)findViewById(R.id.waveLoadingView3);
+        waveLoadingView4=(WaveLoadingView)findViewById(R.id.waveLoadingView4);
+
+        //declaration of variables pranjul 1
 
 
     }
@@ -116,6 +152,23 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                 bind_action();
         }
 
+        //java Oncreate code code pranjul 1
+        PieView animatedPie = (PieView) findViewById(R.id.animated_pie_view_1);
+
+        PieAngleAnimation animation = new PieAngleAnimation(animatedPie);
+        animation.setDuration(1000); //This is the duration of the animation in millis
+        animatedPie.startAnimation(animation);
+        waveLoadingView2.setProgressValue(90);
+        waveLoadingView2.setBottomTitle("");
+        waveLoadingView2.setCenterTitle(String.format("%d%%",90));
+        waveLoadingView2.setTopTitle("");
+
+        step.setOnClickListener(this);
+        caloriesin.setOnClickListener(this);
+        calories.setOnClickListener(this);
+        improvement.setOnClickListener(this);
+        //java Oncreate code code pranjul 1
+
 
     }
 
@@ -169,6 +222,63 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
 
     }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.stepsbutton:
+                step.setImageResource(R.drawable.xsteps);
+                PieView animatedPie = (PieView) findViewById(R.id.animated_pie_view_1);
+
+                PieAngleAnimation animation = new PieAngleAnimation(animatedPie);
+                animation.setDuration(1000); //This is the duration of the animation in millis
+                animatedPie.startAnimation(animation);
+                t.setText("52 more steps");
+                r.setVisibility(View.VISIBLE);
+                r1.setVisibility(View.INVISIBLE);
+                r2.setVisibility(View.INVISIBLE);
+                r3.setVisibility(View.INVISIBLE);
+                break;
+            case R.id.caloriesbutton : calories.setImageResource(R.drawable.xcalories);
+                t.setText("114 more calories");
+                r.setVisibility(View.INVISIBLE);
+                r1.setVisibility(View.VISIBLE);
+                r2.setVisibility(View.INVISIBLE);
+                r3.setVisibility(View.INVISIBLE);
+                waveLoadingView2.setProgressValue(40);
+                waveLoadingView2.setBottomTitle("");
+                waveLoadingView2.setCenterTitle(String.format("%d%%",40));
+                waveLoadingView2.setTopTitle("");
+                break;
+            case R.id.somethingbutton :
+                caloriesin.setImageResource(R.drawable.xsomething);
+                t.setText("223 more");
+                r.setVisibility(View.INVISIBLE);
+                r1.setVisibility(View.INVISIBLE);
+                r2.setVisibility(View.VISIBLE);
+                r3.setVisibility(View.INVISIBLE);
+                waveLoadingView3.setProgressValue(52);
+                waveLoadingView3.setBottomTitle("");
+                waveLoadingView3.setCenterTitle(String.format("%d%%",52));
+                waveLoadingView3.setTopTitle("");
+                break;
+            case R.id.improvementsbutton :
+                improvement.setImageResource(R.drawable.ximprovements);
+                t.setText("DEFEAT PRANJUL");
+                r.setVisibility(View.INVISIBLE);
+                r1.setVisibility(View.INVISIBLE);
+                r2.setVisibility(View.INVISIBLE);
+                r3.setVisibility(View.VISIBLE);
+                waveLoadingView4.setProgressValue(12);
+                waveLoadingView4.setBottomTitle("");
+                waveLoadingView4.setCenterTitle(String.format("%d",12));
+                waveLoadingView4.setTopTitle("");
+                break;
+
+
+        }
+    }
+    //code------------
 
     @Override
     protected void onStart() {
