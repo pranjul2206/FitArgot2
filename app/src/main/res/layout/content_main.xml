@@ -373,7 +373,7 @@
                             android:layout_width="110dp"
                             android:layout_height="110dp"
                             android:background="@drawable/colourtile1"
-                            android:src="@drawable/source"
+                            android:src="@drawable/frenchfries"
                             android:textAlignment="center" />
                         <TextView
                             android:id="@+id/card1text1"
@@ -382,7 +382,7 @@
                             android:layout_height="wrap_content"
                             android:textStyle="bold"
                             android:layout_marginTop="10dp"
-                            android:text="Activity"/>
+                            android:text="Food"/>
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="1dp"
@@ -392,7 +392,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:text="Click to check your activities"
+                            android:text="Check Calories Intake"
                             android:padding="5dp"
                             android:textColor="@android:color/darker_gray"/>
 
@@ -434,7 +434,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:text="Check your bank activities"
+                            android:text="Make New Records"
                             android:padding="5dp"
                             android:textColor="@android:color/darker_gray"/>
 
@@ -444,6 +444,98 @@
 
             </LinearLayout>
             <!-- column2 -->
+            <LinearLayout
+                android:clipToPadding="false"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <android.support.v7.widget.CardView
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:id="@+id/card3"
+                    android:layout_width="170dp"
+                    android:layout_height="190dp"
+                    android:layout_margin="1dp">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:gravity="center">
+
+                        <pl.droidsonroids.gif.GifImageView
+                            android:id="@+id/gifView3"
+                            android:layout_width="110dp"
+                            android:layout_height="110dp"
+                            android:background="@drawable/colourtile3"
+                            android:src="@drawable/explore"
+                            android:textAlignment="center" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textStyle="bold"
+                            android:layout_marginTop="10dp"
+                            android:text="Discover"/>
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/lightgray"
+                            android:layout_margin="10dp"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="News and Clips"
+                            android:padding="5dp"
+                            android:textColor="@android:color/darker_gray"/>
+
+                    </LinearLayout>
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:id="@+id/card4"
+                    android:layout_width="160dp"
+                    android:layout_height="190dp"
+                    android:layout_margin="10dp">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:gravity="center">
+
+                        <pl.droidsonroids.gif.GifImageView
+                            android:id="@+id/gifView4"
+                            android:layout_width="110dp"
+                            android:layout_height="110dp"
+                            android:background="@drawable/colourtile4"
+                            android:src="@drawable/medicine"
+                            android:textAlignment="center" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textStyle="bold"
+                            android:layout_marginTop="10dp"
+                            android:text="Medicines"/>
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/lightgray"
+                            android:layout_margin="10dp"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="Routine Health Checkups"
+                            android:padding="5dp"
+                            android:textColor="@android:color/darker_gray"/>
+
+                    </LinearLayout>
+                </android.support.v7.widget.CardView>
+
+
+            </LinearLayout>
         </LinearLayout>
 
 

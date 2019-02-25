@@ -44,4 +44,5 @@ dependencies {
     implementation 'com.github.zurche:plain-pie:v0.2.9'
     implementation 'com.github.therealshabi:AutoImageFlipper:v1.4.1'
     implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.16'
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0-alpha'
 }

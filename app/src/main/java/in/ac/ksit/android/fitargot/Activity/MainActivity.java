@@ -91,6 +91,8 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     }
     public void bind_view(){
+        Intent intent=new Intent(this,StepsGraphs.class);
+        startActivity(intent);
         mDrawerLayout=findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
         mapFragment= (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
