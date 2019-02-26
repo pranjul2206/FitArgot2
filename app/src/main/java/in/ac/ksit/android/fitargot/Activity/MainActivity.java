@@ -13,6 +13,7 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.CardView;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
@@ -71,12 +72,13 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     GoogleApis googleApis=null;
     //declaration of variables pranjul1
 
-    WaveLoadingView waveLoadingView2,waveLoadingView3,waveLoadingView4;
+    WaveLoadingView waveLoadingView2,waveLoadingView3,waveLoadingView4,waveLoadingGraph;
     TextView t;
     RelativeLayout r,r1,r2,r3;
     ImageView step,calories,caloriesin,improvement,SelectedPic;
     String s[]={"steps","calories","something","improvements"};
     FlipperLayout flipper;
+    CardView card2;
 
     {
         googleApis=ApiClient.getClient(Constants.PLACE_BASE_PATH).create(GoogleApis.class);
@@ -91,8 +93,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     }
     public void bind_view(){
-        Intent intent=new Intent(this,StepsGraphs.class);
-        startActivity(intent);
+
         mDrawerLayout=findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
         mapFragment= (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
@@ -114,6 +115,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         waveLoadingView2=(WaveLoadingView)findViewById(R.id.waveLoadingView2);
         waveLoadingView3=(WaveLoadingView)findViewById(R.id.waveLoadingView3);
         waveLoadingView4=(WaveLoadingView)findViewById(R.id.waveLoadingView4);
+        waveLoadingGraph=(WaveLoadingView)findViewById(R.id.waveLoadingView4);
         //--------SLIDE IMAGE
         flipper=(FlipperLayout)findViewById(R.id.flipper);
         setLayout();
@@ -170,8 +172,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         if(!isLoggedIn()){
 
-            Intent intent=new Intent(this,LoginActivity.class);
-            startActivity(intent);
+
 
         }else{
 
@@ -181,6 +182,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         //java Oncreate code code pranjul 1
         PieView animatedPie = (PieView) findViewById(R.id.animated_pie_view_1);
+        card2=(CardView)findViewById(R.id.card2);
 
         PieAngleAnimation animation = new PieAngleAnimation(animatedPie);
         animation.setDuration(1000); //This is the duration of the animation in millis
@@ -194,9 +196,31 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         caloriesin.setOnClickListener(this);
         calories.setOnClickListener(this);
         improvement.setOnClickListener(this);
+        card2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Exercise();
+            }
+        });
         //java Oncreate code code pranjul 1
+        waveLoadingGraph.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openStepGraph();
+            }
+        });
 
 
+    }
+    private void openStepGraph()
+    {
+        Intent intent=new Intent(this,StepsGraphs.class);
+        startActivity(intent);
+    }
+    private void Exercise()
+    {
+        Intent intent=new Intent(this,Exercise.class);
+        startActivity(intent);
     }
     private void setLayout()
     {

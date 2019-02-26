@@ -1,542 +1,565 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:plainpie="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".Activity.MainActivity"
-    tools:showIn="@layout/activity_main"
-    android:orientation="vertical"
-    xmlns:plainpie="http://schemas.android.com/apk/res-auto">
+    tools:showIn="@layout/activity_main">
 
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/bubble"
+            android:layout_width="match_parent"
+            android:layout_height="270dp"
+            android:layout_margin="10dp"
+            android:clickable="true">
+
+            <LinearLayout
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:paddingTop="25dp">
+
+                <android.support.v7.widget.CardView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_margin="5dp"
+                    android:elevation="30dp"
+                    android:gravity="center"
+                    android:paddingTop="2dp"
+                    app:cardCornerRadius="25dp">
+
+                    <ImageView
+                        android:id="@+id/stepsbutton"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/steps" />
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_margin="5dp"
+                    android:elevation="30dp"
+                    android:gravity="center"
+                    android:paddingTop="2dp"
+                    app:cardCornerRadius="25dp">
+
+                    <ImageView
+                        android:id="@+id/caloriesbutton"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/calories" />
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_margin="5dp"
+                    android:elevation="30dp"
+                    android:gravity="center"
+                    android:paddingTop="2dp"
+                    app:cardCornerRadius="25dp">
+
+                    <ImageView
+                        android:id="@+id/somethingbutton"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/something" />
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_margin="5dp"
+                    android:elevation="30dp"
+                    android:gravity="center"
+                    android:paddingTop="2dp"
+                    app:cardCornerRadius="25dp">
+
+                    <ImageView
+                        android:id="@+id/improvementsbutton"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/improvements" />
+                </android.support.v7.widget.CardView>
+            </LinearLayout>
+            <!-- FRIEND PROFILE PIC -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:paddingLeft="275dp"
+                android:paddingTop="15dp">
+
+                <android.support.v7.widget.CardView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    app:cardCornerRadius="25dp">
+
+                    <ImageView
+                        android:id="@+id/friendprofilepic"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:paddingRight="10dp"
+
+                        android:src="@drawable/friendprofile" />
+                </android.support.v7.widget.CardView>
+
+                <TextView
+                    android:id="@+id/leftover"
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:text="52 more" />
+
+
+            </LinearLayout>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <!-- bubble is here!! -->
+                <RelativeLayout
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <RelativeLayout
+                        android:id="@+id/option1bubble1"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp">
+
+                        <az.plainpie.PieView
+                            android:id="@+id/animated_pie_view_1"
+                            android:layout_width="150dp"
+                            android:layout_height="150dp"
+                            android:layout_alignParentStart="true"
+                            android:layout_alignParentTop="true"
+                            android:layout_marginStart="105dp"
+                            plainpie:inner_pie_padding="30"
+                            plainpie:inner_text_visibility="true"
+                            plainpie:percentage="75"
+                            plainpie:percentage_size="50" />
+
+                        <TextView
+                            android:id="@+id/option1text1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:layout_alignParentBottom="true"
+                            android:layout_marginStart="131dp"
+                            android:layout_marginBottom="17dp"
+                            android:text="253 steps taken"
+                            android:textStyle="bold" />
+                    </RelativeLayout>
+
+                    <!-- bubble was here!! -->
+                    <RelativeLayout
+                        android:id="@+id/option2bubble2"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp">
+
+                        <me.itangqi.waveloadingview.WaveLoadingView
+                            android:id="@+id/waveLoadingView2"
+                            android:layout_width="150dp"
+                            android:layout_height="150dp"
+                            android:layout_alignParentStart="true"
+                            android:layout_alignParentTop="true"
+                            android:layout_marginStart="108dp"
+                            app:wlv_borderColor="@color/white"
+                            app:wlv_borderWidth="3dp"
+
+                            app:wlv_round_rectangle="true"
+                            app:wlv_shapeType="circle"
+                            app:wlv_titleBottomColor="@color/colorAccent"
+                            app:wlv_titleBottomSize="24sp"
+
+                            app:wlv_titleBottomStrokeColor="@color/colorAccent"
+                            app:wlv_titleBottomStrokeWidth="1dp"
+                            app:wlv_titleCenterColor="@color/colorAccent"
+                            app:wlv_titleCenterSize="24sp"
+
+                            app:wlv_titleCenterStrokeColor="@color/colorAccent"
+                            app:wlv_titleCenterStrokeWidth="1dp"
+                            app:wlv_titleTopColor="@color/colorAccent"
+                            app:wlv_titleTopSize="24sp"
+
+                            app:wlv_titleTopStrokeColor="@color/colorAccent"
+                            app:wlv_titleTopStrokeWidth="1dp"
+
+                            app:wlv_triangle_direction="north"
+                            app:wlv_waveAmplitude="70"
+                            app:wlv_waveColor="@color/lightyellow" />
+
+                        <TextView
+                            android:id="@+id/option2text2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:layout_alignParentBottom="true"
+                            android:layout_marginStart="131dp"
+                            android:layout_marginBottom="17dp"
+                            android:text="124 calories burnt"
+                            android:textStyle="bold" />
+
+                        <!-- second bubble was here -->
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/option3bubble3"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp">
+
+                        <me.itangqi.waveloadingview.WaveLoadingView
+                            android:id="@+id/waveLoadingView3"
+                            android:layout_width="150dp"
+                            android:layout_height="150dp"
+                            android:layout_alignParentStart="true"
+                            android:layout_alignParentTop="true"
+                            android:layout_marginStart="108dp"
+                            app:wlv_borderColor="@color/white"
+                            app:wlv_borderWidth="3dp"
+
+                            app:wlv_round_rectangle="true"
+                            app:wlv_shapeType="circle"
+                            app:wlv_titleBottomColor="@color/colorAccent"
+                            app:wlv_titleBottomSize="24sp"
+
+                            app:wlv_titleBottomStrokeColor="@color/colorAccent"
+                            app:wlv_titleBottomStrokeWidth="1dp"
+                            app:wlv_titleCenterColor="@color/colorAccent"
+                            app:wlv_titleCenterSize="24sp"
+
+                            app:wlv_titleCenterStrokeColor="@color/colorAccent"
+                            app:wlv_titleCenterStrokeWidth="1dp"
+                            app:wlv_titleTopColor="@color/colorAccent"
+                            app:wlv_titleTopSize="24sp"
+
+                            app:wlv_titleTopStrokeColor="@color/colorAccent"
+                            app:wlv_titleTopStrokeWidth="1dp"
+
+                            app:wlv_triangle_direction="north"
+                            app:wlv_waveAmplitude="70"
+                            app:wlv_waveColor="@color/lightpurple" />
+
+                        <TextView
+                            android:id="@+id/option3text3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:layout_alignParentBottom="true"
+                            android:layout_marginStart="131dp"
+                            android:layout_marginBottom="17dp"
+                            android:text="173 calories taken"
+                            android:textStyle="bold" />
+
+                        <!-- third bubble was here -->
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/option4bubble4"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp">
+
+                        <me.itangqi.waveloadingview.WaveLoadingView
+                            android:id="@+id/waveLoadingView4"
+                            android:layout_width="150dp"
+                            android:layout_height="150dp"
+                            android:layout_alignParentStart="true"
+                            android:layout_alignParentTop="true"
+                            android:layout_marginStart="108dp"
+                            app:wlv_borderColor="@color/white"
+                            app:wlv_borderWidth="3dp"
+
+                            app:wlv_round_rectangle="true"
+                            app:wlv_shapeType="circle"
+                            app:wlv_titleBottomColor="@color/colorAccent"
+                            app:wlv_titleBottomSize="24sp"
+
+                            app:wlv_titleBottomStrokeColor="@color/colorAccent"
+                            app:wlv_titleBottomStrokeWidth="1dp"
+                            app:wlv_titleCenterColor="@color/colorAccent"
+                            app:wlv_titleCenterSize="24sp"
+
+                            app:wlv_titleCenterStrokeColor="@color/colorAccent"
+                            app:wlv_titleCenterStrokeWidth="1dp"
+                            app:wlv_titleTopColor="@color/colorAccent"
+                            app:wlv_titleTopSize="24sp"
+
+                            app:wlv_titleTopStrokeColor="@color/colorAccent"
+                            app:wlv_titleTopStrokeWidth="1dp"
+
+                            app:wlv_triangle_direction="north"
+                            app:wlv_waveAmplitude="70"
+                            app:wlv_waveColor="@color/lightRed" />
+
+                        <TextView
+                            android:id="@+id/option4text4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:layout_alignParentBottom="true"
+                            android:layout_marginStart="131dp"
+                            android:layout_marginBottom="17dp"
+                            android:text="49 more calories"
+                            android:textStyle="bold" />
+
+                        <!-- fourth bubble was here -->
+
+                    </RelativeLayout>
+                </RelativeLayout>
+
+            </RelativeLayout>
+        </android.support.v7.widget.CardView>
+        <!-- IMAGE SLIDER -->
         <LinearLayout
-
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="0dp"
-            android:layout_marginTop="0dp"
+            android:clipToPadding="false"
             android:gravity="center"
-            android:orientation="vertical"
-            >
+            android:orientation="horizontal">
 
-            <android.support.v7.widget.CardView
-                android:id="@+id/bubble"
+            <technolifestyle.com.imageslider.FlipperLayout
+                android:id="@+id/flipper"
                 android:layout_width="match_parent"
-                android:layout_height="270dp"
-                android:layout_margin="10dp"
+                android:layout_height="200dp">
+
+            </technolifestyle.com.imageslider.FlipperLayout>
+        </LinearLayout>
+
+        <!--french fries and work -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipToPadding="false"
+            android:gravity="center"
+            android:orientation="horizontal">
+            <!--food -->
+            <android.support.v7.widget.CardView
+                android:id="@+id/card1"
+                android:layout_width="170dp"
+                android:layout_height="190dp"
+                android:layout_margin="1dp"
                 android:clickable="true"
-                >
+                android:foreground="?android:attr/selectableItemBackground"
+                android:transitionName="transition1">
 
                 <LinearLayout
-                    android:layout_width="50dp"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:paddingTop="25dp">
-                    <android.support.v7.widget.CardView
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
-                        android:paddingTop="2dp"
-                        android:elevation="30dp"
-                        android:layout_margin="5dp"
-                        android:gravity="center"
-                        app:cardCornerRadius="25dp"
-                        >
-                        <ImageView
-                            android:id="@+id/stepsbutton"
-                            android:layout_width="24dp"
-                            android:layout_height="24dp"
-                            android:layout_gravity="center"
-                            android:src="@drawable/steps" />
-                    </android.support.v7.widget.CardView>
-                    <android.support.v7.widget.CardView
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
-                        android:paddingTop="2dp"
-                        android:elevation="30dp"
-                        android:layout_margin="5dp"
-                        android:gravity="center"
-                        app:cardCornerRadius="25dp"
-                        >
-
-                        <ImageView
-                            android:id="@+id/caloriesbutton"
-                            android:layout_width="24dp"
-                            android:layout_height="24dp"
-                            android:layout_gravity="center"
-                            android:src="@drawable/calories" />
-                    </android.support.v7.widget.CardView>
-                    <android.support.v7.widget.CardView
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
-                        android:paddingTop="2dp"
-                        android:elevation="30dp"
-                        android:layout_margin="5dp"
-                        android:gravity="center"
-                        app:cardCornerRadius="25dp"
-                        >
-
-                        <ImageView
-                            android:id="@+id/somethingbutton"
-                            android:layout_width="24dp"
-                            android:layout_height="24dp"
-                            android:layout_gravity="center"
-                            android:src="@drawable/something" />
-                    </android.support.v7.widget.CardView>
-                    <android.support.v7.widget.CardView
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
-                        android:paddingTop="2dp"
-                        android:elevation="30dp"
-                        android:layout_margin="5dp"
-                        android:gravity="center"
-                        app:cardCornerRadius="25dp"
-                        >
-
-                        <ImageView
-                            android:id="@+id/improvementsbutton"
-                            android:layout_width="24dp"
-                            android:layout_height="24dp"
-                            android:layout_gravity="center"
-                            android:src="@drawable/improvements" />
-                    </android.support.v7.widget.CardView>
-                </LinearLayout>
-                <!-- FRIEND PROFILE PIC -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:paddingLeft="275dp"
-                    android:paddingTop="15dp">
-
-                    <android.support.v7.widget.CardView
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        app:cardCornerRadius="25dp"
-                        >
-
-                        <ImageView
-                            android:id="@+id/friendprofilepic"
-                            android:layout_width="60dp"
-                            android:layout_height="60dp"
-                            android:paddingRight="10dp"
-
-                            android:src="@drawable/friendprofile" />
-                    </android.support.v7.widget.CardView>
-                    <TextView
-                        android:id="@+id/leftover"
-                        android:layout_width="wrap_content"
-                        android:layout_height="20dp"
-                        android:text="52 more" />
-
-
-                </LinearLayout>
-
-
-                <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:orientation="vertical">
 
-                    <!-- bubble is here!! -->
-                    <RelativeLayout
+                    <pl.droidsonroids.gif.GifImageView
+                        android:id="@+id/gifView1"
+                        android:layout_width="110dp"
+                        android:layout_height="110dp"
+                        android:background="@drawable/colourtile1"
+                        android:src="@drawable/frenchfries"
+                        android:textAlignment="center" />
 
+                    <TextView
+                        android:id="@+id/card1text1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="Food"
+                        android:textStyle="bold"
+                        android:transitionName="transition0" />
+
+                    <View
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_height="1dp"
+                        android:layout_margin="10dp"
+                        android:background="@color/lightgray" />
 
-                        <RelativeLayout
-                            android:id="@+id/option1bubble1"
-                            android:layout_width="match_parent"
-                            android:layout_height="200dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text="Check Calories Intake"
+                        android:textColor="@android:color/darker_gray" />
 
-                            <az.plainpie.PieView
-                                android:id="@+id/animated_pie_view_1"
-                                android:layout_width="150dp"
-                                android:layout_height="150dp"
-                                android:layout_alignParentStart="true"
-                                android:layout_alignParentTop="true"
-                                android:layout_marginStart="105dp"
-                                plainpie:inner_pie_padding="30"
-                                plainpie:inner_text_visibility="true"
-                                plainpie:percentage="75"
-                                plainpie:percentage_size="50" />
-
-                            <TextView
-                                android:id="@+id/option1text1"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_alignParentStart="true"
-                                android:layout_alignParentBottom="true"
-                                android:layout_marginStart="131dp"
-                                android:layout_marginBottom="17dp"
-                                android:text="253 steps taken"
-                                android:textStyle="bold" />
-                        </RelativeLayout>
-
-                        <!-- bubble was here!! -->
-                        <RelativeLayout
-                            android:id="@+id/option2bubble2"
-                            android:layout_width="match_parent"
-                            android:layout_height="200dp">
-
-                            <me.itangqi.waveloadingview.WaveLoadingView
-                                android:id="@+id/waveLoadingView2"
-                                android:layout_width="150dp"
-                                android:layout_height="150dp"
-                                android:layout_alignParentStart="true"
-                                android:layout_alignParentTop="true"
-                                android:layout_marginStart="108dp"
-                                app:wlv_borderColor="@color/white"
-                                app:wlv_borderWidth="3dp"
-
-                                app:wlv_round_rectangle="true"
-                                app:wlv_shapeType="circle"
-                                app:wlv_titleBottomColor="@color/colorAccent"
-                                app:wlv_titleBottomSize="24sp"
-
-                                app:wlv_titleBottomStrokeColor="@color/colorAccent"
-                                app:wlv_titleBottomStrokeWidth="1dp"
-                                app:wlv_titleCenterColor="@color/colorAccent"
-                                app:wlv_titleCenterSize="24sp"
-
-                                app:wlv_titleCenterStrokeColor="@color/colorAccent"
-                                app:wlv_titleCenterStrokeWidth="1dp"
-                                app:wlv_titleTopColor="@color/colorAccent"
-                                app:wlv_titleTopSize="24sp"
-
-                                app:wlv_titleTopStrokeColor="@color/colorAccent"
-                                app:wlv_titleTopStrokeWidth="1dp"
-
-                                app:wlv_triangle_direction="north"
-                                app:wlv_waveAmplitude="70"
-                                app:wlv_waveColor="@color/lightyellow" />
-
-                            <TextView
-                                android:id="@+id/option2text2"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_alignParentStart="true"
-                                android:layout_alignParentBottom="true"
-                                android:layout_marginStart="131dp"
-                                android:layout_marginBottom="17dp"
-                                android:text="124 calories burnt"
-                                android:textStyle="bold" />
-
-                            <!-- second bubble was here -->
-
-                        </RelativeLayout>
-                        <RelativeLayout
-                            android:id="@+id/option3bubble3"
-                            android:layout_width="match_parent"
-                            android:layout_height="200dp">
-
-                            <me.itangqi.waveloadingview.WaveLoadingView
-                                android:id="@+id/waveLoadingView3"
-                                android:layout_width="150dp"
-                                android:layout_height="150dp"
-                                android:layout_alignParentStart="true"
-                                android:layout_alignParentTop="true"
-                                android:layout_marginStart="108dp"
-                                app:wlv_borderColor="@color/white"
-                                app:wlv_borderWidth="3dp"
-
-                                app:wlv_round_rectangle="true"
-                                app:wlv_shapeType="circle"
-                                app:wlv_titleBottomColor="@color/colorAccent"
-                                app:wlv_titleBottomSize="24sp"
-
-                                app:wlv_titleBottomStrokeColor="@color/colorAccent"
-                                app:wlv_titleBottomStrokeWidth="1dp"
-                                app:wlv_titleCenterColor="@color/colorAccent"
-                                app:wlv_titleCenterSize="24sp"
-
-                                app:wlv_titleCenterStrokeColor="@color/colorAccent"
-                                app:wlv_titleCenterStrokeWidth="1dp"
-                                app:wlv_titleTopColor="@color/colorAccent"
-                                app:wlv_titleTopSize="24sp"
-
-                                app:wlv_titleTopStrokeColor="@color/colorAccent"
-                                app:wlv_titleTopStrokeWidth="1dp"
-
-                                app:wlv_triangle_direction="north"
-                                app:wlv_waveAmplitude="70"
-                                app:wlv_waveColor="@color/lightpurple" />
-
-                            <TextView
-                                android:id="@+id/option3text3"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_alignParentStart="true"
-                                android:layout_alignParentBottom="true"
-                                android:layout_marginStart="131dp"
-                                android:layout_marginBottom="17dp"
-                                android:text="173 calories taken"
-                                android:textStyle="bold" />
-
-                            <!-- third bubble was here -->
-
-                        </RelativeLayout>
-                        <RelativeLayout
-                            android:id="@+id/option4bubble4"
-                            android:layout_width="match_parent"
-                            android:layout_height="200dp">
-
-                            <me.itangqi.waveloadingview.WaveLoadingView
-                                android:id="@+id/waveLoadingView4"
-                                android:layout_width="150dp"
-                                android:layout_height="150dp"
-                                android:layout_alignParentStart="true"
-                                android:layout_alignParentTop="true"
-                                android:layout_marginStart="108dp"
-                                app:wlv_borderColor="@color/white"
-                                app:wlv_borderWidth="3dp"
-
-                                app:wlv_round_rectangle="true"
-                                app:wlv_shapeType="circle"
-                                app:wlv_titleBottomColor="@color/colorAccent"
-                                app:wlv_titleBottomSize="24sp"
-
-                                app:wlv_titleBottomStrokeColor="@color/colorAccent"
-                                app:wlv_titleBottomStrokeWidth="1dp"
-                                app:wlv_titleCenterColor="@color/colorAccent"
-                                app:wlv_titleCenterSize="24sp"
-
-                                app:wlv_titleCenterStrokeColor="@color/colorAccent"
-                                app:wlv_titleCenterStrokeWidth="1dp"
-                                app:wlv_titleTopColor="@color/colorAccent"
-                                app:wlv_titleTopSize="24sp"
-
-                                app:wlv_titleTopStrokeColor="@color/colorAccent"
-                                app:wlv_titleTopStrokeWidth="1dp"
-
-                                app:wlv_triangle_direction="north"
-                                app:wlv_waveAmplitude="70"
-                                app:wlv_waveColor="@color/lightRed" />
-
-                            <TextView
-                                android:id="@+id/option4text4"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_alignParentStart="true"
-                                android:layout_alignParentBottom="true"
-                                android:layout_marginStart="131dp"
-                                android:layout_marginBottom="17dp"
-                                android:text="49 more calories"
-                                android:textStyle="bold" />
-
-                            <!-- fourth bubble was here -->
-
-                        </RelativeLayout>
-                    </RelativeLayout>
-
-                </RelativeLayout>
+                </LinearLayout>
             </android.support.v7.widget.CardView>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:clipToPadding="false"
-                android:gravity="center"
-                android:orientation="horizontal">
-                <technolifestyle.com.imageslider.FlipperLayout
-                    android:id="@+id/flipper"
+            <!--Exercise -->
+            <android.support.v7.widget.CardView
+                android:id="@+id/card2"
+                android:layout_width="160dp"
+                android:layout_height="190dp"
+                android:layout_margin="10dp"
+                android:clickable="true"
+                android:foreground="?android:attr/selectableItemBackground">
+
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="200dp">
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical">
 
-                </technolifestyle.com.imageslider.FlipperLayout>
-            </LinearLayout>
-            <!--colum 1 -->
-            <LinearLayout
-                android:clipToPadding="false"
-                android:gravity="center"
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <android.support.v7.widget.CardView
-                    android:transitionName="transition1"
-                    android:foreground="?android:attr/selectableItemBackground"
-                    android:clickable="true"
-                    android:id="@+id/card1"
-                    android:layout_width="170dp"
-                    android:layout_height="190dp"
-                    android:layout_margin="1dp">
-                    <LinearLayout
+                    <pl.droidsonroids.gif.GifImageView
+                        android:id="@+id/gifView2"
+                        android:layout_width="110dp"
+                        android:layout_height="110dp"
+                        android:background="@drawable/colourtile2"
+                        android:src="@drawable/running"
+                        android:textAlignment="center" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="Exercies"
+                        android:textStyle="bold" />
+
+                    <View
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical"
-                        android:gravity="center">
+                        android:layout_height="1dp"
+                        android:layout_margin="10dp"
+                        android:background="@color/lightgray" />
 
-                        <pl.droidsonroids.gif.GifImageView
-                            android:id="@+id/gifView1"
-                            android:layout_width="110dp"
-                            android:layout_height="110dp"
-                            android:background="@drawable/colourtile1"
-                            android:src="@drawable/frenchfries"
-                            android:textAlignment="center" />
-                        <TextView
-                            android:id="@+id/card1text1"
-                            android:transitionName="transition0"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textStyle="bold"
-                            android:layout_marginTop="10dp"
-                            android:text="Food"/>
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="1dp"
-                            android:background="@color/lightgray"
-                            android:layout_margin="10dp"/>
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:text="Check Calories Intake"
-                            android:padding="5dp"
-                            android:textColor="@android:color/darker_gray"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text="Make New Records"
+                        android:textColor="@android:color/darker_gray" />
 
-                    </LinearLayout>
-                </android.support.v7.widget.CardView>
-
-                <android.support.v7.widget.CardView
-                    android:foreground="?android:attr/selectableItemBackground"
-                    android:clickable="true"
-                    android:id="@+id/card2"
-                    android:layout_width="160dp"
-                    android:layout_height="190dp"
-                    android:layout_margin="10dp">
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical"
-                        android:gravity="center">
-
-                        <pl.droidsonroids.gif.GifImageView
-                            android:id="@+id/gifView2"
-                            android:layout_width="110dp"
-                            android:layout_height="110dp"
-                            android:background="@drawable/colourtile2"
-                            android:src="@drawable/running"
-                            android:textAlignment="center" />
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textStyle="bold"
-                            android:layout_marginTop="10dp"
-                            android:text="Exercies"/>
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="1dp"
-                            android:background="@color/lightgray"
-                            android:layout_margin="10dp"/>
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:text="Make New Records"
-                            android:padding="5dp"
-                            android:textColor="@android:color/darker_gray"/>
-
-                    </LinearLayout>
-                </android.support.v7.widget.CardView>
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
 
 
-            </LinearLayout>
-            <!-- column2 -->
-            <LinearLayout
-                android:clipToPadding="false"
-                android:gravity="center"
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <android.support.v7.widget.CardView
-                    android:foreground="?android:attr/selectableItemBackground"
-                    android:clickable="true"
-                    android:id="@+id/card3"
-                    android:layout_width="170dp"
-                    android:layout_height="190dp"
-                    android:layout_margin="1dp">
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical"
-                        android:gravity="center">
-
-                        <pl.droidsonroids.gif.GifImageView
-                            android:id="@+id/gifView3"
-                            android:layout_width="110dp"
-                            android:layout_height="110dp"
-                            android:background="@drawable/colourtile3"
-                            android:src="@drawable/explore"
-                            android:textAlignment="center" />
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textStyle="bold"
-                            android:layout_marginTop="10dp"
-                            android:text="Discover"/>
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="1dp"
-                            android:background="@color/lightgray"
-                            android:layout_margin="10dp"/>
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:text="News and Clips"
-                            android:padding="5dp"
-                            android:textColor="@android:color/darker_gray"/>
-
-                    </LinearLayout>
-                </android.support.v7.widget.CardView>
-
-                <android.support.v7.widget.CardView
-                    android:foreground="?android:attr/selectableItemBackground"
-                    android:clickable="true"
-                    android:id="@+id/card4"
-                    android:layout_width="160dp"
-                    android:layout_height="190dp"
-                    android:layout_margin="10dp">
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical"
-                        android:gravity="center">
-
-                        <pl.droidsonroids.gif.GifImageView
-                            android:id="@+id/gifView4"
-                            android:layout_width="110dp"
-                            android:layout_height="110dp"
-                            android:background="@drawable/colourtile4"
-                            android:src="@drawable/medicine"
-                            android:textAlignment="center" />
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textStyle="bold"
-                            android:layout_marginTop="10dp"
-                            android:text="Medicines"/>
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="1dp"
-                            android:background="@color/lightgray"
-                            android:layout_margin="10dp"/>
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:text="Routine Health Checkups"
-                            android:padding="5dp"
-                            android:textColor="@android:color/darker_gray"/>
-
-                    </LinearLayout>
-                </android.support.v7.widget.CardView>
-
-
-            </LinearLayout>
         </LinearLayout>
+        <!-- discover and medicine -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipToPadding="false"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/card3"
+                android:layout_width="170dp"
+                android:layout_height="190dp"
+                android:layout_margin="1dp"
+                android:clickable="true"
+                android:foreground="?android:attr/selectableItemBackground">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <pl.droidsonroids.gif.GifImageView
+                        android:id="@+id/gifView3"
+                        android:layout_width="110dp"
+                        android:layout_height="110dp"
+                        android:background="@drawable/colourtile3"
+                        android:src="@drawable/explore"
+                        android:textAlignment="center" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="Discover"
+                        android:textStyle="bold" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_margin="10dp"
+                        android:background="@color/lightgray" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text="News and Clips"
+                        android:textColor="@android:color/darker_gray" />
+
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/card4"
+                android:layout_width="160dp"
+                android:layout_height="190dp"
+                android:layout_margin="10dp"
+                android:clickable="true"
+                android:foreground="?android:attr/selectableItemBackground">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <pl.droidsonroids.gif.GifImageView
+                        android:id="@+id/gifView4"
+                        android:layout_width="110dp"
+                        android:layout_height="110dp"
+                        android:background="@drawable/colourtile4"
+                        android:src="@drawable/medicine"
+                        android:textAlignment="center" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="Medicines"
+                        android:textStyle="bold" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_margin="10dp"
+                        android:background="@color/lightgray" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text="Routine Health Checkups"
+                        android:textColor="@android:color/darker_gray" />
+
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+
+        </LinearLayout>
+
+    </LinearLayout>
 
 
 </android.support.v4.widget.NestedScrollView>

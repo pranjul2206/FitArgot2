@@ -63,6 +63,7 @@
             android:background="#fcfcfc"
             android:gravity="center"
             android:id="@+id/ll">
+            <!-- first pie chart -->
 
             <LinearLayout
 
@@ -78,6 +79,11 @@
                     android:layout_height="380dp"
                     android:layout_margin="10dp">
                     <!-- this is pie chart -->
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+
                     <com.github.mikephil.charting.charts.PieChart
                         android:id="@+id/chart1"
                         android:layout_width="match_parent"
@@ -87,14 +93,25 @@
 
                     </com.github.mikephil.charting.charts.PieChart>
 
+                        <pl.droidsonroids.gif.GifImageView
+                            android:id="@+id/gifView1"
+                            android:layout_width="110dp"
+                            android:layout_height="110dp"
+                            android:layout_alignParentTop="true"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="105dp"
+                            android:src="@drawable/chartcalories"
+                            android:textAlignment="center" />
+
+                    </RelativeLayout>
 
                     <!-- this is pie chart -->
 
                 </android.support.v7.widget.CardView>
 
 
-            </LinearLayout>
 
+            </LinearLayout>
 
             <!-- second pie chart -->
 
@@ -113,6 +130,9 @@
                     android:layout_height="380dp"
                     android:layout_margin="10dp">
                     <!-- this is pie chart -->
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
                     <com.github.mikephil.charting.charts.PieChart
                         android:id="@+id/chart5"
                         android:layout_width="match_parent"
@@ -121,7 +141,16 @@
                         android:layout_alignParentTop="true">
 
                     </com.github.mikephil.charting.charts.PieChart>
+                        <pl.droidsonroids.gif.GifImageView
+                            android:layout_width="115dp"
+                            android:layout_height="115dp"
+                            android:layout_alignParentTop="true"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="110dp"
+                            android:src="@drawable/tenor"
+                            android:textAlignment="center" />
 
+                    </RelativeLayout>
 
                     <!-- this is pie chart -->
 
