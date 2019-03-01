@@ -100,8 +100,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     }
     //declaration of variables pranjul1
     private boolean isLoggedIn(){
-
-        return true;
+        return false;
     }
 
     private void init_objects(){
@@ -183,9 +182,12 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        //Intent intent=new Intent(this,discover.class);
-        //startActivity(intent);
 
+        Log.d(TAG,"going to login");
+        Intent intent2=new Intent(this,LoginActivity.class);
+        startActivity(intent2);
+//        Intent intent=new Intent(this,discover.class);
+//        startActivity(intent);
         permissions.add(Manifest.permission.ACCESS_FINE_LOCATION);
         permissions.add(Manifest.permission.ACCESS_COARSE_LOCATION);
 
@@ -199,107 +201,111 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         if(!isLoggedIn()){
 
+//            Intent intent2=new Intent(this,LoginActivity.class);
+//            startActivity(intent2);
 
 
         }else{
 
                 bind_view();
                 bind_action();
+
+            //java Oncreate code code pranjul 1
+            animatedPie = (PieView) findViewById(R.id.animated_pie_view_1);
+
+            final PieAngleAnimation animation = new PieAngleAnimation(animatedPie);
+            animation.setDuration(1000); //This is the duration of the animation in millis
+            animatedPie.startAnimation(animation);
+            animatedPie.setMainBackgroundColor(getResources().getColor(R.color.lightgray));
+            animatedPie.setTextColor(getResources().getColor(R.color.black));
+            animatedPie.setInnerBackgroundColor(getResources().getColor(R.color.white));
+            waveLoadingView2.setProgressValue(90);
+            waveLoadingView2.setBottomTitle("");
+            waveLoadingView2.setCenterTitle(String.format("%d%%",90));
+            waveLoadingView2.setTopTitle("");
+
+            step.setOnClickListener(this);
+            caloriesin.setOnClickListener(this);
+            calories.setOnClickListener(this);
+            improvement.setOnClickListener(this);
+            //listner for card 1
+            card1.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    callActivity(1);
+                }
+            });
+            card2.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    callActivity(2);
+                }
+            });
+            card3.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    callActivity(3);
+                }
+            });
+            card4.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    callActivity(4);
+                }
+            });
+            card5.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    callActivity(5);
+                }
+            });
+
+            //sensors
+            stepm = (SensorManager)getSystemService(SENSOR_SERVICE);
+            lightm = (SensorManager)getSystemService(SENSOR_SERVICE);
+
+            light = lightm.getDefaultSensor(Sensor.TYPE_LIGHT);
+            stepsinoption1 = stepm.getDefaultSensor(Sensor.TYPE_STEP_COUNTER);
+
+            stepm.registerListener(listener_light, light, SensorManager.SENSOR_DELAY_FASTEST);
+            playoption1.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if(playbutton==0)
+                    {
+                        playbutton=1;
+                        playoption1.setImageResource(R.drawable.stopoption1);
+                        option1text1.setText("please keep the phone in pocket");
+                        startanimation(option1text1);
+                    }
+                    else{
+                        playbutton=0;
+                        playoption1.setImageResource(R.drawable.playoption1);
+                        option1text1.setText("");
+                    }
+
+
+                }
+            });
+            nextbttn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    imagestate++;
+                    exercise.setImageResource(images[imagestate]);
+
+                }
+            });
+
+            prevbttn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    imagestate--;
+                    exercise.setImageResource(images[imagestate]);
+                }
+            });
         }
 
-        //java Oncreate code code pranjul 1
-        animatedPie = (PieView) findViewById(R.id.animated_pie_view_1);
 
-
-        final PieAngleAnimation animation = new PieAngleAnimation(animatedPie);
-        animation.setDuration(1000); //This is the duration of the animation in millis
-        animatedPie.startAnimation(animation);
-        animatedPie.setMainBackgroundColor(getResources().getColor(R.color.lightgray));
-        animatedPie.setTextColor(getResources().getColor(R.color.black));
-        animatedPie.setInnerBackgroundColor(getResources().getColor(R.color.white));
-        waveLoadingView2.setProgressValue(90);
-        waveLoadingView2.setBottomTitle("");
-        waveLoadingView2.setCenterTitle(String.format("%d%%",90));
-        waveLoadingView2.setTopTitle("");
-
-        step.setOnClickListener(this);
-        caloriesin.setOnClickListener(this);
-        calories.setOnClickListener(this);
-        improvement.setOnClickListener(this);
-        //listner for card 1
-        card1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                callActivity(1);
-            }
-        });
-        card2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                callActivity(2);
-            }
-        });
-        card3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                callActivity(3);
-            }
-        });
-        card4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                callActivity(4);
-            }
-        });
-        card5.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                callActivity(5);
-            }
-        });
-
-        //sensors
-        stepm = (SensorManager)getSystemService(SENSOR_SERVICE);
-        lightm = (SensorManager)getSystemService(SENSOR_SERVICE);
-
-        light = lightm.getDefaultSensor(Sensor.TYPE_LIGHT);
-        stepsinoption1 = stepm.getDefaultSensor(Sensor.TYPE_STEP_COUNTER);
-
-        stepm.registerListener(listener_light, light, SensorManager.SENSOR_DELAY_FASTEST);
-        playoption1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(playbutton==0)
-                {
-                    playbutton=1;
-                    playoption1.setImageResource(R.drawable.stopoption1);
-                    option1text1.setText("please keep the phone in pocket");
-                    startanimation(option1text1);
-                }
-                else{
-                    playbutton=0;
-                    playoption1.setImageResource(R.drawable.playoption1);
-                    option1text1.setText("");
-                }
-
-
-            }
-        });
-        nextbttn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                imagestate++;
-            exercise.setImageResource(images[imagestate]);
-
-            }
-        });
-        prevbttn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                imagestate--;
-                exercise.setImageResource(images[imagestate]);
-            }
-        });
 
     }
     //sensors functions

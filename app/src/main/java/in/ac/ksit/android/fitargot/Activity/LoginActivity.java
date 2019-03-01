@@ -2,11 +2,14 @@ package in.ac.ksit.android.fitargot.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
 import android.util.Log;
-import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,6 +29,8 @@ import org.json.JSONObject;
 
 import java.util.Arrays;
 
+import in.ac.ksit.android.fitargot.Fragments.Login;
+import in.ac.ksit.android.fitargot.Fragments.SignUp;
 import in.ac.ksit.android.fitargot.R;
 import in.ac.ksit.android.fitargot.Util.LoginUtil;
 
@@ -41,94 +46,103 @@ public class LoginActivity extends AppCompatActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        manager.onActivityResult(requestCode, resultCode, data);
-        super.onActivityResult(requestCode, resultCode, data);
-        Toast.makeText(this, "Login success", Toast.LENGTH_SHORT).show();
+        Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.frame_container);
+        if(fragment instanceof Login)
+            loginFragment.onActivityResult(requestCode,resultCode,data);
+        else
+            signupFragment.onActivityResult(requestCode,resultCode,data);
+    }
+
+
+    TabLayout authTab;
+    TabLayout.Tab login;
+    TabLayout.Tab signup;
+    Toolbar toolbar;
+    Fragment loginFragment;
+    Fragment signupFragment;
+
+    private void init_ui(){
+        toolbar=findViewById(R.id.login_toolbar);
+        toolbar.setTitle("FitArgot");
+        setSupportActionBar(toolbar);
+
+        authTab=(TabLayout)findViewById(R.id.auth_tab);
+        loginFragment=new Login();
+        signupFragment=new SignUp();
+
+        login=authTab.newTab();
+        login.setText("Login");
+
+        replcaeFragment(0);
+        Log.d("LOgin ACTIVITY","loading login");
+        signup=authTab.newTab();
+        signup.setText("Sign Up");
+        authTab.addTab(login);
+        authTab.addTab(signup);
+//        FragmentManager manager=getSupportFragmentManager();
+//
+//        FragmentTransaction ft=manager.beginTransaction();
+//        ft.add(R.id.frame_container,loginFragment);
+//        ft.commit();
+
+        authTab.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                switch (authTab.getSelectedTabPosition()) {
+                    case 0:
+                        replcaeFragment(0);
+                        break;
+                    case 1:
+                        replcaeFragment(1);
+                        break;
+                }
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
+
+
+    }
+
+    private void replcaeFragment(int i) {
+        FragmentManager manager=getSupportFragmentManager();
+        FragmentTransaction ft=manager.beginTransaction();
+
+        switch (i){
+            case 0:
+                ft.replace(R.id.frame_container, loginFragment);
+                ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+
+                break;
+            case 1:
+                ft.replace(R.id.frame_container, signupFragment);
+                ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+
+                break;
+        }
+        ft.commit();
+
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        manager = CallbackManager.Factory.create();
-
-        AndroidNetworking.initialize(getApplicationContext());
-
-        fbLogin = (LoginButton)findViewById(R.id.login_button);
-        //fbLogin.setReadPermissions(Arrays.asList(email));
-        fbLogin.setReadPermissions(Arrays.asList(
-                "public_profile", "email", "user_birthday", "user_friends"));
-
-        result = (TextView)findViewById(R.id.response);
-        frs = findViewById(R.id.friends);
-
-        fbLogin.registerCallback(manager, new FacebookCallback<LoginResult>() {
-            @Override
-            public void onSuccess(LoginResult loginResult) {
-
-                String profileID = Profile.getCurrentProfile().getId();
-
-                String accessToken = loginResult.getAccessToken().getToken();
+        init_ui();
 
 
-                AndroidNetworking.get(URL).addPathParameter("user_id", profileID).addQueryParameter("access_token", accessToken)
-                        .build().getAsJSONObject(new JSONObjectRequestListener() {
-                    @Override
-                    public void onResponse(JSONObject response) {
-                        try{
-                            StringBuffer buffer = new StringBuffer();
-                            JSONArray array = response.getJSONArray("data");
-                            for(int i = 0; i < array.length(); i++) {
-                                JSONObject object = array.getJSONObject(i);
-
-                                String json = object.toString();
-
-                                LoginUtil friend = new Gson().fromJson(json, LoginUtil.class);
-
-                                buffer.append("Name : "+friend.id+"\n"+friend.name+"\n");
-
-                                buffer.append("\n---------\n");
-
-
-                            }
-
-                            updateList(buffer);
-
-
-                        }catch (Exception e) {
-                            e.printStackTrace();
-                        }
-                    }
-
-                    @Override
-                    public void onError(ANError anError) {
-
-                    }
-                });
-
-
-            }
-
-            @Override
-            public void onCancel() {
-                result.setText("User cancelled login");
-            }
-
-            @Override
-            public void onError(FacebookException error) {
-                Log.d("FACEBOOK", error.toString());
-            }
-
-            
-
-        });
 
     }
 
 
-    void updateList(StringBuffer buffer) {
-        frs.setText(buffer.toString());
-    }
 
 
 }
