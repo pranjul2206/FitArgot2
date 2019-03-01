@@ -9,21 +9,11 @@
     android:theme="@style/AppTheme.NoActionBar"
     tools:context=".Activity.MainActivity">
 
-    <android.support.design.widget.CoordinatorLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".Activity.MainActivity">
 
-        <android.support.design.widget.AppBarLayout
-            android:layout_width="match_parent"
-            android:layout_height="400dp"
-            android:theme="@style/AppTheme.AppBarOverlay">
-
-            <android.support.design.widget.CollapsingToolbarLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:contentScrim="@color/colorPrimary"
-                app:layout_scrollFlags="scroll|exitUntilCollapsed">
                 <LinearLayout
                     android:orientation="vertical"
                     android:layout_width="match_parent"
@@ -67,13 +57,12 @@
                             android:background="@drawable/gradientmap"/>
 
                     </RelativeLayout>
+                    <include layout="@layout/content_main"/>
                 </LinearLayout>
-            </android.support.design.widget.CollapsingToolbarLayout>
-        </android.support.design.widget.AppBarLayout>
 
-        <include layout="@layout/content_main"/>
 
-    </android.support.design.widget.CoordinatorLayout>
+
+    </ScrollView>
 
     <android.support.design.widget.NavigationView
         android:id="@+id/nav_view"
