@@ -100,7 +100,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     }
     //declaration of variables pranjul1
     private boolean isLoggedIn(){
-        return false;
+        return true;
     }
 
     private void init_objects(){
@@ -184,8 +184,8 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         setContentView(R.layout.activity_main);
 
         Log.d(TAG,"going to login");
-        Intent intent2=new Intent(this,LoginActivity.class);
-        startActivity(intent2);
+        //Intent intent2=new Intent(this,LoginActivity.class);
+        //startActivity(intent2);
 //        Intent intent=new Intent(this,discover.class);
 //        startActivity(intent);
         permissions.add(Manifest.permission.ACCESS_FINE_LOCATION);
