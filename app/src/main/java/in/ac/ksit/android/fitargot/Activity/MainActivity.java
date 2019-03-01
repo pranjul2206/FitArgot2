@@ -303,6 +303,12 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                     exercise.setImageResource(images[imagestate]);
                 }
             });
+            joinbttn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    joinbttn.setImageResource(R.drawable.correctbttn);
+                }
+            });
         }
 
 
