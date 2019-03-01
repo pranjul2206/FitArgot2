@@ -530,17 +530,14 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                 waveLoadingView3.setCenterTitle(String.format("%d%%",52));
                 waveLoadingView3.setTopTitle("");
                 break;
-                case R.id.improvementsbutton :
+            case R.id.improvementsbutton :
                 improvement.setImageResource(R.drawable.ximprovemnets);
                 t.setText("DEFEAT PRANJUL");
                 r.setVisibility(View.INVISIBLE);
                 r1.setVisibility(View.INVISIBLE);
                 r2.setVisibility(View.INVISIBLE);
                 r3.setVisibility(View.VISIBLE);
-                waveLoadingView4.setProgressValue(12);
-                waveLoadingView4.setBottomTitle("");
-                waveLoadingView4.setCenterTitle(String.format("%d",12));
-                waveLoadingView4.setTopTitle("");
+
                 break;
 
 
