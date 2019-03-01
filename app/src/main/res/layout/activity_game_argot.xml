@@ -1,0 +1,660 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#000000"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".Activity.gameArgot">
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:gravity="center"
+        android:orientation="vertical">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="ARGOT CHALANGE"
+                android:textSize="30dp"
+                android:textColor="#ffffff"
+                android:gravity="center"/>
+        </RelativeLayout>
+        <!-- primary block -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="150dp">
+
+            <android.support.v7.widget.CardView
+                android:layout_width="400dp"
+                android:layout_height="150dp"
+                app:cardCornerRadius="30dp"
+                app:cardBackgroundColor="#F6BD26">
+                <RelativeLayout
+                    android:id="@+id/layout1"
+                    android:visibility="visible"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:layout_width="38dp"
+                        android:layout_height="40dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="25dp"
+                        android:layout_marginTop="26dp"
+                        android:src="@drawable/star" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="75dp"
+                        android:layout_marginTop="25dp"
+                        android:text="RUN !"
+                        android:textColor="#ffffff"
+                        android:textSize="30dp" />
+
+                    <TextView
+                        android:id="@+id/total1"
+                        android:layout_width="69dp"
+                        android:layout_height="43dp"
+
+
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="26dp"
+                        android:layout_marginEnd="64dp"
+                        android:text="1724"
+                        android:textColor="#ffffff"
+                        android:textSize="30dp" />
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="43dp"
+
+
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginTop="26dp"
+                        android:layout_marginEnd="216dp"
+                        android:layout_marginBottom="38dp"
+                        android:text="2000 Steps"
+                        android:textColor="#ffffff"
+                        android:textSize="15dp" />
+
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginStart="28dp"
+                        android:layout_marginTop="106dp"
+                        android:layout_marginBottom="13dp"
+                        android:src="@drawable/progress" />
+
+                    <Chronometer
+                        android:id="@+id/chronometer1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginEnd="230dp"
+                        android:layout_marginBottom="25dp"
+                        android:textColor="#ffffff"
+                        android:textSize="15sp" />
+
+                    <ImageView
+                        android:layout_width="23dp"
+                        android:layout_height="31dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginStart="148dp"
+                        android:layout_marginTop="111dp"
+                        android:layout_marginBottom="17dp"
+                        android:src="@drawable/total" />
+
+                    <TextView
+                        android:id="@+id/calories1"
+                        android:layout_width="100dp"
+                        android:layout_height="43dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginTop="26dp"
+                        android:layout_marginEnd="74dp"
+                        android:layout_marginBottom="1dp"
+                        android:text="1295 cal."
+                        android:textColor="#ffffff"
+                        android:textSize="15dp" />
+
+                    <ImageView
+                        android:layout_width="23dp"
+                        android:layout_height="31dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginStart="281dp"
+                        android:layout_marginTop="111dp"
+                        android:layout_marginBottom="17dp"
+                        android:src="@drawable/coins" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginTop="26dp"
+                        android:layout_marginEnd="37dp"
+                        android:layout_marginBottom="23dp"
+                        android:text="2"
+                        android:textColor="#ffffff"
+                        android:textSize="15dp" />
+
+
+                </RelativeLayout>
+
+            </android.support.v7.widget.CardView>
+
+        </RelativeLayout>
+        <!-- blank line -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@drawable/connect" />
+        </RelativeLayout>
+        <!-- dibba 1 -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp">
+            <android.support.v7.widget.CardView
+                android:layout_width="400dp"
+                android:layout_height="100dp"
+                app:cardBackgroundColor="@color/darkblue"
+                app:cardCornerRadius="30dp">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="17dp"
+                        android:layout_marginTop="25dp"
+                        android:src="@drawable/cup" />
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="24dp"
+                        android:layout_marginEnd="153dp"
+                        android:src="@drawable/iconw" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="97dp"
+                        android:layout_marginTop="21dp"
+                        android:text="Tuesday"
+                        android:textColor="@color/white"
+                        android:textSize="20dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="98dp"
+                        android:layout_marginTop="52dp"
+                        android:text="2000 Steps"
+                        android:textColor="@color/white"
+                        android:textSize="15dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="292dp"
+                        android:layout_marginTop="28dp"
+                        android:text="1724"
+                        android:textColor="@color/white"
+                        android:textSize="27dp" />
+                </RelativeLayout>
+            </android.support.v7.widget.CardView>
+
+        </RelativeLayout>
+        <!-- blank line -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@drawable/connect" />
+        </RelativeLayout>
+        <!-- dibba 2 -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp">
+            <android.support.v7.widget.CardView
+                android:layout_width="400dp"
+                android:layout_height="100dp"
+                app:cardCornerRadius="30dp"
+                app:cardBackgroundColor="@color/darkred">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="17dp"
+                        android:layout_marginTop="25dp"
+                        android:src="@drawable/cup" />
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="24dp"
+                        android:layout_marginEnd="153dp"
+                        android:src="@drawable/icono" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="97dp"
+                        android:layout_marginTop="21dp"
+                        android:text="Thursday"
+                        android:textColor="@color/white"
+                        android:textSize="20dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="98dp"
+                        android:layout_marginTop="52dp"
+                        android:text="2000 Steps"
+                        android:textColor="@color/white"
+                        android:textSize="15dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="292dp"
+                        android:layout_marginTop="28dp"
+                        android:text="1724"
+                        android:textColor="@color/white"
+                        android:textSize="27dp" />
+                </RelativeLayout>
+            </android.support.v7.widget.CardView>
+
+        </RelativeLayout>
+        <!-- blank line -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@drawable/connect" />
+        </RelativeLayout>
+        <!-- dibba 3 -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp">
+            <android.support.v7.widget.CardView
+                android:layout_width="400dp"
+                android:layout_height="100dp"
+                app:cardCornerRadius="30dp"
+                app:cardBackgroundColor="@color/darkred">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="17dp"
+                        android:layout_marginTop="25dp"
+                        android:src="@drawable/cup" />
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="24dp"
+                        android:layout_marginEnd="153dp"
+                        android:src="@drawable/iconr" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="97dp"
+                        android:layout_marginTop="21dp"
+                        android:text="Friday"
+                        android:textColor="@color/white"
+                        android:textSize="20dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="98dp"
+                        android:layout_marginTop="52dp"
+                        android:text="2000 Steps"
+                        android:textColor="@color/white"
+                        android:textSize="15dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="292dp"
+                        android:layout_marginTop="28dp"
+                        android:text="1724"
+                        android:textColor="@color/white"
+                        android:textSize="27dp" />
+                </RelativeLayout>
+            </android.support.v7.widget.CardView>
+
+        </RelativeLayout>
+        <!-- blank line -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@drawable/connect" />
+        </RelativeLayout>
+        <!-- dibba 4 -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp">
+            <android.support.v7.widget.CardView
+                android:layout_width="400dp"
+                android:layout_height="100dp"
+                app:cardCornerRadius="30dp"
+                app:cardBackgroundColor="@color/darkred">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="17dp"
+                        android:layout_marginTop="25dp"
+                        android:src="@drawable/cup" />
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="24dp"
+                        android:layout_marginEnd="153dp"
+                        android:src="@drawable/iconm" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="97dp"
+                        android:layout_marginTop="21dp"
+                        android:text="Saturday"
+                        android:textColor="@color/white"
+                        android:textSize="20dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="98dp"
+                        android:layout_marginTop="52dp"
+                        android:text="2000 Steps"
+                        android:textColor="@color/white"
+                        android:textSize="15dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="292dp"
+                        android:layout_marginTop="28dp"
+                        android:text="1724"
+                        android:textColor="@color/white"
+                        android:textSize="27dp" />
+                </RelativeLayout>
+            </android.support.v7.widget.CardView>
+
+        </RelativeLayout>
+        <!-- blank line -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@drawable/connect" />
+        </RelativeLayout>
+        <!-- dibba 5 -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp">
+            <android.support.v7.widget.CardView
+                android:layout_width="400dp"
+                android:layout_height="100dp"
+                app:cardCornerRadius="30dp"
+                app:cardBackgroundColor="@color/darkred">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="17dp"
+                        android:layout_marginTop="25dp"
+                        android:src="@drawable/cup" />
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="24dp"
+                        android:layout_marginEnd="153dp"
+                        android:src="@drawable/iconu" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="97dp"
+                        android:layout_marginTop="21dp"
+                        android:text="Sunday"
+                        android:textColor="@color/white"
+                        android:textSize="20dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="98dp"
+                        android:layout_marginTop="52dp"
+                        android:text="2000 Steps"
+                        android:textColor="@color/white"
+                        android:textSize="15dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="292dp"
+                        android:layout_marginTop="28dp"
+                        android:text="1724"
+                        android:textColor="@color/white"
+                        android:textSize="27dp" />
+                </RelativeLayout>
+            </android.support.v7.widget.CardView>
+
+        </RelativeLayout>
+        <!-- blank line -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@drawable/connect" />
+        </RelativeLayout>
+        <!-- dibba 6 -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp">
+            <android.support.v7.widget.CardView
+                android:layout_width="400dp"
+                android:layout_height="100dp"
+                app:cardCornerRadius="30dp"
+                app:cardBackgroundColor="@color/darkred">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="17dp"
+                        android:layout_marginTop="25dp"
+                        android:src="@drawable/cup" />
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="24dp"
+                        android:layout_marginEnd="153dp"
+                        android:src="@drawable/iconp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="97dp"
+                        android:layout_marginTop="21dp"
+                        android:text="Sunday"
+                        android:textColor="@color/white"
+                        android:textSize="20dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="98dp"
+                        android:layout_marginTop="52dp"
+                        android:text="2000 Steps"
+                        android:textColor="@color/white"
+                        android:textSize="15dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="292dp"
+                        android:layout_marginTop="28dp"
+                        android:text="1724"
+                        android:textColor="@color/white"
+                        android:textSize="27dp" />
+                </RelativeLayout>
+            </android.support.v7.widget.CardView>
+
+        </RelativeLayout>
+
+
+
+    </LinearLayout>
+
+</android.support.v4.widget.NestedScrollView>

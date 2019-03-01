@@ -133,19 +133,18 @@
 
             </LinearLayout>
 
-
+            <!-- bubbles insight -->
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:orientation="vertical">
 
-                <!-- bubble is here!! -->
+                <!-- all bubbles!! -->
                 <RelativeLayout
-
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
-
+                    <!-- chart was here -->
                     <RelativeLayout
                         android:id="@+id/option1bubble1"
                         android:layout_width="match_parent"
@@ -174,8 +173,7 @@
                             android:text="253 steps taken"
                             android:textStyle="bold" />
                     </RelativeLayout>
-
-                    <!-- bubble was here!! -->
+                    <!-- bubble 1 was here!! -->
                     <RelativeLayout
                         android:id="@+id/option2bubble2"
                         android:layout_width="match_parent"
@@ -227,7 +225,7 @@
                         <!-- second bubble was here -->
 
                     </RelativeLayout>
-
+                    <!-- bubble 2 was here!! -->
                     <RelativeLayout
                         android:id="@+id/option3bubble3"
                         android:layout_width="match_parent"
@@ -279,7 +277,7 @@
                         <!-- third bubble was here -->
 
                     </RelativeLayout>
-
+                    <!-- bubble 3 was here!! -->
                     <RelativeLayout
                         android:id="@+id/option4bubble4"
                         android:layout_width="match_parent"
@@ -351,14 +349,14 @@
             </technolifestyle.com.imageslider.FlipperLayout>
         </LinearLayout>
 
-        <!--french fries and work -->
+        <!--redeem and games -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:clipToPadding="false"
             android:gravity="center"
             android:orientation="horizontal">
-            <!--food -->
+            <!--redeem -->
             <android.support.v7.widget.CardView
                 android:id="@+id/card1"
                 android:layout_width="170dp"
@@ -379,7 +377,7 @@
                         android:layout_width="110dp"
                         android:layout_height="110dp"
                         android:background="@drawable/colourtile1"
-                        android:src="@drawable/frenchfries"
+                        android:src="@drawable/dollar"
                         android:textAlignment="center" />
 
                     <TextView
@@ -387,7 +385,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:text="Food"
+                        android:text="redeem"
                         android:textStyle="bold"
                         android:transitionName="transition0" />
 
@@ -402,7 +400,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:padding="5dp"
-                        android:text="Check Calories Intake"
+                        android:text="health nd earn"
                         android:textColor="@android:color/darker_gray" />
 
                 </LinearLayout>
@@ -434,7 +432,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:text="Exercies"
+                        android:text="games"
                         android:textStyle="bold" />
 
                     <View
@@ -456,65 +454,71 @@
 
 
         </LinearLayout>
-        <!-- discover and medicine -->
-        <LinearLayout
+        <!-- social network,food,discover -->
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="400dp"
             android:clipToPadding="false"
             android:gravity="center"
-            android:orientation="horizontal">
-
+            android:orientation="vertical">
+           <!-- card 3 social media-->
             <android.support.v7.widget.CardView
                 android:id="@+id/card3"
-                android:layout_width="170dp"
-                android:layout_height="190dp"
-                android:layout_margin="1dp"
+                android:layout_width="181dp"
+                android:layout_height="398dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="1dp"
+                android:layout_marginEnd="187dp"
+                android:layout_marginBottom="5dp"
                 android:clickable="true"
-                android:foreground="?android:attr/selectableItemBackground">
+                android:foreground="?android:attr/selectableItemBackground"
+                android:paddingLeft="50dp">
 
-                <LinearLayout
+                <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:orientation="vertical">
 
                     <pl.droidsonroids.gif.GifImageView
-                        android:id="@+id/gifView3"
-                        android:layout_width="110dp"
-                        android:layout_height="110dp"
-                        android:background="@drawable/colourtile3"
-                        android:src="@drawable/explore"
+                        android:id="@+id/gifView31"
+                        android:layout_width="179dp"
+                        android:layout_height="162dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="0dp"
+                        android:layout_marginTop="0dp"
+                        android:src="@drawable/sm2"
                         android:textAlignment="center" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:text="Discover"
-                        android:textStyle="bold" />
+                    <pl.droidsonroids.gif.GifImageView
+                        android:id="@+id/gifView30"
+                        android:layout_width="179dp"
+                        android:layout_height="162dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="173dp"
+                        android:layout_marginEnd="0dp"
+                        android:src="@drawable/sn1"
+                        android:textAlignment="center" />
 
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:layout_margin="10dp"
-                        android:background="@color/lightgray" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:padding="5dp"
-                        android:text="News and Clips"
-                        android:textColor="@android:color/darker_gray" />
-
-                </LinearLayout>
+                </RelativeLayout>
             </android.support.v7.widget.CardView>
-
+            <!-- card 4 food -->
             <android.support.v7.widget.CardView
                 android:id="@+id/card4"
                 android:layout_width="160dp"
                 android:layout_height="190dp"
-                android:layout_margin="10dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="187dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginBottom="205dp"
                 android:clickable="true"
                 android:foreground="?android:attr/selectableItemBackground">
 
@@ -529,14 +533,14 @@
                         android:layout_width="110dp"
                         android:layout_height="110dp"
                         android:background="@drawable/colourtile4"
-                        android:src="@drawable/medicine"
+                        android:src="@drawable/frenchfries"
                         android:textAlignment="center" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:text="Medicines"
+                        android:text="food"
                         android:textStyle="bold" />
 
                     <View
@@ -550,14 +554,68 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:padding="5dp"
-                        android:text="Routine Health Checkups"
+                        android:text="bla bla bla"
+                        android:textColor="@android:color/darker_gray" />
+
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+            <!-- card 5 discover -->
+            <android.support.v7.widget.CardView
+                android:id="@+id/card5"
+                android:layout_width="153dp"
+                android:layout_height="187dp"
+                android:layout_alignBottom="@+id/card4"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="188dp"
+                android:layout_marginTop="206dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="-199dp"
+                android:clickable="true"
+                android:foreground="?android:attr/selectableItemBackground">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignStart="@+id/card5"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <pl.droidsonroids.gif.GifImageView
+                        android:id="@+id/gifView5"
+                        android:layout_width="110dp"
+                        android:layout_height="110dp"
+                        android:background="@drawable/colourtile4"
+                        android:src="@drawable/explore"
+                        android:textAlignment="center" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="discover"
+                        android:textStyle="bold" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_margin="10dp"
+                        android:background="@color/lightgray" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text="Explore health"
                         android:textColor="@android:color/darker_gray" />
 
                 </LinearLayout>
             </android.support.v7.widget.CardView>
 
 
-        </LinearLayout>
+        </RelativeLayout>
 
     </LinearLayout>
 

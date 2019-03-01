@@ -78,7 +78,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     ImageView step,calories,caloriesin,improvement,SelectedPic;
     String s[]={"steps","calories","something","improvements"};
     FlipperLayout flipper;
-    CardView card2;
+    CardView card1,card2,card3,card4,card5;
 
     {
         googleApis=ApiClient.getClient(Constants.PLACE_BASE_PATH).create(GoogleApis.class);
@@ -116,6 +116,11 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         waveLoadingView3=(WaveLoadingView)findViewById(R.id.waveLoadingView3);
         waveLoadingView4=(WaveLoadingView)findViewById(R.id.waveLoadingView4);
         waveLoadingGraph=(WaveLoadingView)findViewById(R.id.waveLoadingView4);
+        card1=(CardView)findViewById(R.id.card1);
+        card2=(CardView)findViewById(R.id.card2);
+        card3=(CardView)findViewById(R.id.card3);
+        card4=(CardView)findViewById(R.id.card4);
+        card5=(CardView)findViewById(R.id.card5);
         //--------SLIDE IMAGE
         flipper=(FlipperLayout)findViewById(R.id.flipper);
         setLayout();
@@ -159,6 +164,8 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Intent intent=new Intent(this,discover.class);
+        startActivity(intent);
         permissions.add(Manifest.permission.ACCESS_FINE_LOCATION);
         permissions.add(Manifest.permission.ACCESS_COARSE_LOCATION);
 
@@ -182,7 +189,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         //java Oncreate code code pranjul 1
         PieView animatedPie = (PieView) findViewById(R.id.animated_pie_view_1);
-        card2=(CardView)findViewById(R.id.card2);
+
 
         PieAngleAnimation animation = new PieAngleAnimation(animatedPie);
         animation.setDuration(1000); //This is the duration of the animation in millis
@@ -196,10 +203,35 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         caloriesin.setOnClickListener(this);
         calories.setOnClickListener(this);
         improvement.setOnClickListener(this);
+        //listner for card 1
+        card1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                callActivity(1);
+            }
+        });
         card2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Exercise();
+                callActivity(2);
+            }
+        });
+        card3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                callActivity(3);
+            }
+        });
+        card4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                callActivity(4);
+            }
+        });
+        card5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                callActivity(5);
             }
         });
         //java Oncreate code code pranjul 1
@@ -217,10 +249,24 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         Intent intent=new Intent(this,StepsGraphs.class);
         startActivity(intent);
     }
-    private void Exercise()
-    {
-        Intent intent=new Intent(this,Exercise.class);
-        startActivity(intent);
+
+    public void callActivity(int n)
+    { Intent intent;
+        switch (n)
+        {
+            case 1: intent=new Intent(this,redeem.class);
+                startActivity(intent); break;
+            case 2:  intent=new Intent(this,games.class);
+                startActivity(intent); break;
+            case 3: intent=new Intent(this,social.class);
+                startActivity(intent); break;
+            case 4: intent=new Intent(this,food.class);
+                startActivity(intent); break;
+            case 5: intent=new Intent(this,discover.class);
+                startActivity(intent); break;
+                default:intent=new Intent(this,Exercise.class);
+                    startActivity(intent); break;
+        }
     }
     private void setLayout()
     {

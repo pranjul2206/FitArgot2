@@ -14,7 +14,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
-        <activity android:name=".Activity.Exercise"></activity>
+        <activity android:name=".Activity.pokemongo"></activity>
+        <activity android:name=".Activity.gameArgot" />
+        <activity android:name=".Activity.selfChallange" />
+        <activity android:name=".Activity.createChallange" />
+        <activity android:name=".Activity.nearbyChallanges" />
+        <activity android:name=".Activity.gamesDaily" />
+        <activity android:name=".Activity.discover" />
+        <activity android:name=".Activity.social" />
+        <activity android:name=".Activity.food" />
+        <activity android:name=".Activity.games" />
+        <activity android:name=".Activity.redeem" />
+        <activity android:name=".Activity.Exercise" />
         <activity android:name=".Activity.StepsGraphs" />
         <activity android:name=".Activity.MainActivity">
             <intent-filter>
