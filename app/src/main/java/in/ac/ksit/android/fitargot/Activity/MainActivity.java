@@ -4,6 +4,10 @@ import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.res.Resources;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 import android.location.Location;
 import android.os.Build;
 import android.support.annotation.NonNull;
@@ -17,6 +21,8 @@ import android.support.v7.widget.CardView;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -67,18 +73,26 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     private GoogleMap  gMap;
     private PermissionUtil permissionUtil;
     private GoogleApiClient googleApiClient;
-    int i=0;
+    int images[]={R.drawable.exercise1,R.drawable.exercise2,R.drawable.exercise3,R.drawable.exercise4};
+    int i=0,pieStepVAR=0,playbutton=0,imagestate=0;
+    float value=0;
     private static final  String TAG=MainActivity.class.getSimpleName();
     GoogleApis googleApis=null;
     //declaration of variables pranjul1
 
-    WaveLoadingView waveLoadingView2,waveLoadingView3,waveLoadingView4,waveLoadingGraph;
-    TextView t;
+    WaveLoadingView waveLoadingView2,waveLoadingView3,waveLoadingView4;
+    TextView t,pieLesft,option1text1;
     RelativeLayout r,r1,r2,r3;
-    ImageView step,calories,caloriesin,improvement,SelectedPic;
+    ImageView step,calories,caloriesin,improvement,SelectedPic,playoption1,prevbttn,nextbttn,joinbttn,temp,exee;
     String s[]={"steps","calories","something","improvements"};
     FlipperLayout flipper;
     CardView card1,card2,card3,card4,card5;
+    //sensor variables
+    SensorManager stepm;
+    SensorManager lightm;
+    Sensor stepsinoption1;
+    PieView animatedPie;
+    Sensor light;
 
     {
         googleApis=ApiClient.getClient(Constants.PLACE_BASE_PATH).create(GoogleApis.class);
@@ -107,14 +121,17 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         r2.setVisibility(View.INVISIBLE);
         r3.setVisibility(View.INVISIBLE);
         step=(ImageView)findViewById(R.id.stepsbutton);
+        playoption1=(ImageView)findViewById(R.id.playoption1);
         calories=(ImageView)findViewById(R.id.caloriesbutton);
         caloriesin=(ImageView)findViewById(R.id.somethingbutton);
         improvement=(ImageView)findViewById(R.id.improvementsbutton);
+        prevbttn=(ImageView)findViewById(R.id.prevbttn);
+        nextbttn=(ImageView)findViewById(R.id.nextbttn);
+        joinbttn=(ImageView)findViewById(R.id.joinbttn);
         t=(TextView)findViewById(R.id.leftover);
+        option1text1=(TextView)findViewById(R.id.option1text1);
         waveLoadingView2=(WaveLoadingView)findViewById(R.id.waveLoadingView2);
         waveLoadingView3=(WaveLoadingView)findViewById(R.id.waveLoadingView3);
-        waveLoadingView4=(WaveLoadingView)findViewById(R.id.waveLoadingView4);
-        waveLoadingGraph=(WaveLoadingView)findViewById(R.id.waveLoadingView4);
         card1=(CardView)findViewById(R.id.card1);
         card2=(CardView)findViewById(R.id.card2);
         card3=(CardView)findViewById(R.id.card3);
@@ -124,7 +141,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         flipper=(FlipperLayout)findViewById(R.id.flipper);
         setLayout();
         //--------SLIDE IMAGE
-
+         pieLesft=(TextView)findViewById(R.id.option1text1);
         //declaration of variables pranjul 1
 
 
@@ -163,6 +180,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         Log.d(TAG,"going to login");
         Intent intent2=new Intent(this,LoginActivity.class);
         startActivity(intent2);
@@ -189,6 +207,20 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
                 bind_view();
                 bind_action();
+
+            //java Oncreate code code pranjul 1
+            animatedPie = (PieView) findViewById(R.id.animated_pie_view_1);
+
+            final PieAngleAnimation animation = new PieAngleAnimation(animatedPie);
+            animation.setDuration(1000); //This is the duration of the animation in millis
+            animatedPie.startAnimation(animation);
+            animatedPie.setMainBackgroundColor(getResources().getColor(R.color.lightgray));
+            animatedPie.setTextColor(getResources().getColor(R.color.black));
+            animatedPie.setInnerBackgroundColor(getResources().getColor(R.color.white));
+            waveLoadingView2.setProgressValue(90);
+            waveLoadingView2.setBottomTitle("");
+            waveLoadingView2.setCenterTitle(String.format("%d%%",90));
+            waveLoadingView2.setTopTitle("");
 
             step.setOnClickListener(this);
             caloriesin.setOnClickListener(this);
@@ -225,31 +257,93 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                     callActivity(5);
                 }
             });
-            //java Oncreate code code pranjul 1
-            waveLoadingGraph.setOnClickListener(new View.OnClickListener() {
+
+            //sensors
+            stepm = (SensorManager)getSystemService(SENSOR_SERVICE);
+            lightm = (SensorManager)getSystemService(SENSOR_SERVICE);
+
+            light = lightm.getDefaultSensor(Sensor.TYPE_LIGHT);
+            stepsinoption1 = stepm.getDefaultSensor(Sensor.TYPE_STEP_COUNTER);
+
+            stepm.registerListener(listener_light, light, SensorManager.SENSOR_DELAY_FASTEST);
+            playoption1.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    openStepGraph();
+                    if(playbutton==0)
+                    {
+                        playbutton=1;
+                        playoption1.setImageResource(R.drawable.stopoption1);
+                        option1text1.setText("please keep the phone in pocket");
+                        startanimation(option1text1);
+                    }
+                    else{
+                        playbutton=0;
+                        playoption1.setImageResource(R.drawable.playoption1);
+                        option1text1.setText("");
+                    }
+
+
+                }
+            });
+            nextbttn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+
                 }
             });
 
-
         }
 
-        //java Oncreate code code pranjul 1
-        PieView animatedPie = (PieView) findViewById(R.id.animated_pie_view_1);
 
-
-//        PieAngleAnimation animation = new PieAngleAnimation(animatedPie);
-//        animation.setDuration(1000); //This is the duration of the animation in millis
-//        animatedPie.startAnimation(animation);
-//        waveLoadingView2.setProgressValue(90);
-//        waveLoadingView2.setBottomTitle("");
-//        waveLoadingView2.setCenterTitle(String.format("%d%%",90));
-//        waveLoadingView2.setTopTitle("");
 
 
     }
+    //sensors functions
+    SensorEventListener listener_light = new SensorEventListener() {
+        @Override
+        public void onSensorChanged(SensorEvent event) {
+            if(event.values[0] <= 1.0f) {
+                if(stepsinoption1 == null);
+                else stepm.registerListener(listner_step, stepsinoption1, SensorManager.SENSOR_DELAY_FASTEST);
+            }else if(event.values[0] >= 5.0f) {
+                stepm.unregisterListener(listner_step);
+            }
+        }
+
+        @Override
+        public void onAccuracyChanged(Sensor sensor, int accuracy) {
+
+        }
+    };
+
+    SensorEventListener listner_step = new SensorEventListener() {
+        @Override
+        public void onSensorChanged(SensorEvent event) {
+            if(playbutton==1){
+                if(pieStepVAR==0)
+            {
+                value=event.values[0];
+                pieStepVAR=1;
+                event.values[0]=0;
+            }
+            else{
+                animatedPie.setInnerText((event.values[0]-value)+"");
+            }}
+
+        }
+
+        @Override
+        public void onAccuracyChanged(Sensor sensor, int accuracy) {
+
+        }
+    };
+    private void startanimation(TextView s)
+    {
+        Animation blinkanimation = AnimationUtils.loadAnimation(this, R.anim.blink_anim);
+        s.startAnimation(blinkanimation);
+    }
+    //sensors functions
     private void openStepGraph()
     {
         Intent intent=new Intent(this,StepsGraphs.class);
@@ -427,8 +521,8 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                 waveLoadingView3.setCenterTitle(String.format("%d%%",52));
                 waveLoadingView3.setTopTitle("");
                 break;
-            case R.id.improvementsbutton :
-                improvement.setImageResource(R.drawable.ximprovements);
+                case R.id.improvementsbutton :
+                improvement.setImageResource(R.drawable.ximprovemnets);
                 t.setText("DEFEAT PRANJUL");
                 r.setVisibility(View.INVISIBLE);
                 r1.setVisibility(View.INVISIBLE);

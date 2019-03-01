@@ -148,7 +148,7 @@
                     <RelativeLayout
                         android:id="@+id/option1bubble1"
                         android:layout_width="match_parent"
-                        android:layout_height="200dp">
+                        android:layout_height="220dp">
 
                         <az.plainpie.PieView
                             android:id="@+id/animated_pie_view_1"
@@ -159,8 +159,10 @@
                             android:layout_marginStart="105dp"
                             plainpie:inner_pie_padding="30"
                             plainpie:inner_text_visibility="true"
+                            app:inner_text="0"
                             plainpie:percentage="75"
-                            plainpie:percentage_size="50" />
+                            plainpie:percentage_size="30"
+                            />
 
                         <TextView
                             android:id="@+id/option1text1"
@@ -168,10 +170,22 @@
                             android:layout_height="wrap_content"
                             android:layout_alignParentStart="true"
                             android:layout_alignParentBottom="true"
-                            android:layout_marginStart="131dp"
-                            android:layout_marginBottom="17dp"
-                            android:text="253 steps taken"
+                            android:layout_marginStart="84dp"
+                            android:layout_marginBottom="42dp"
+                            android:text=""
+                            android:textAlignment="center"
+                            android:textColor="@color/darkred"
                             android:textStyle="bold" />
+
+                        <ImageView
+                            android:id="@+id/playoption1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:layout_alignParentBottom="true"
+                            android:layout_marginStart="164dp"
+                            android:layout_marginBottom="0dp"
+                            android:src="@drawable/playoption1" />
                     </RelativeLayout>
                     <!-- bubble 1 was here!! -->
                     <RelativeLayout
@@ -283,48 +297,43 @@
                         android:layout_width="match_parent"
                         android:layout_height="200dp">
 
-                        <me.itangqi.waveloadingview.WaveLoadingView
-                            android:id="@+id/waveLoadingView4"
-                            android:layout_width="150dp"
-                            android:layout_height="150dp"
-                            android:layout_alignParentStart="true"
+                        <ImageView
+                            android:id="@+id/exerciseimage"
+                            android:layout_width="300dp"
+                            android:layout_height="170dp"
                             android:layout_alignParentTop="true"
-                            android:layout_marginStart="108dp"
-                            app:wlv_borderColor="@color/white"
-                            app:wlv_borderWidth="3dp"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="0dp"
+                            android:src="@drawable/exercise1" />
 
-                            app:wlv_round_rectangle="true"
-                            app:wlv_shapeType="circle"
-                            app:wlv_titleBottomColor="@color/colorAccent"
-                            app:wlv_titleBottomSize="24sp"
-
-                            app:wlv_titleBottomStrokeColor="@color/colorAccent"
-                            app:wlv_titleBottomStrokeWidth="1dp"
-                            app:wlv_titleCenterColor="@color/colorAccent"
-                            app:wlv_titleCenterSize="24sp"
-
-                            app:wlv_titleCenterStrokeColor="@color/colorAccent"
-                            app:wlv_titleCenterStrokeWidth="1dp"
-                            app:wlv_titleTopColor="@color/colorAccent"
-                            app:wlv_titleTopSize="24sp"
-
-                            app:wlv_titleTopStrokeColor="@color/colorAccent"
-                            app:wlv_titleTopStrokeWidth="1dp"
-
-                            app:wlv_triangle_direction="north"
-                            app:wlv_waveAmplitude="70"
-                            app:wlv_waveColor="@color/lightRed" />
-
-                        <TextView
-                            android:id="@+id/option4text4"
+                        <ImageView
+                            android:id="@+id/prevbttn"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignParentStart="true"
                             android:layout_alignParentBottom="true"
-                            android:layout_marginStart="131dp"
-                            android:layout_marginBottom="17dp"
-                            android:text="49 more calories"
-                            android:textStyle="bold" />
+                            android:layout_marginStart="92dp"
+                            android:src="@drawable/prev_bttn" />
+
+                        <ImageView
+                            android:id="@+id/nextbttn"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:layout_alignParentBottom="true"
+                            android:layout_marginStart="263dp"
+                            android:layout_marginBottom="1dp"
+                            android:src="@drawable/next_bttn" />
+
+                        <ImageView
+                            android:id="@+id/joinbttn"
+                            android:layout_width="62dp"
+                            android:layout_height="23dp"
+                            android:layout_alignParentStart="true"
+                            android:layout_alignParentBottom="true"
+                            android:layout_marginStart="161dp"
+                            android:layout_marginBottom="0dp"
+                            android:src="@drawable/joinbttn" />
 
                         <!-- fourth bubble was here -->
 
