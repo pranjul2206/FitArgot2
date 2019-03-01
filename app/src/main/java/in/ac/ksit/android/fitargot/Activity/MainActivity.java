@@ -85,8 +85,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     }
     //declaration of variables pranjul1
     private boolean isLoggedIn(){
-
-        return true;
+        return false;
     }
 
     private void init_objects(){
@@ -164,8 +163,11 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Intent intent=new Intent(this,discover.class);
-        startActivity(intent);
+        Log.d(TAG,"going to login");
+        Intent intent2=new Intent(this,LoginActivity.class);
+        startActivity(intent2);
+//        Intent intent=new Intent(this,discover.class);
+//        startActivity(intent);
         permissions.add(Manifest.permission.ACCESS_FINE_LOCATION);
         permissions.add(Manifest.permission.ACCESS_COARSE_LOCATION);
 
@@ -179,68 +181,72 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         if(!isLoggedIn()){
 
+//            Intent intent2=new Intent(this,LoginActivity.class);
+//            startActivity(intent2);
 
 
         }else{
 
                 bind_view();
                 bind_action();
+
+            step.setOnClickListener(this);
+            caloriesin.setOnClickListener(this);
+            calories.setOnClickListener(this);
+            improvement.setOnClickListener(this);
+            //listner for card 1
+            card1.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    callActivity(1);
+                }
+            });
+            card2.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    callActivity(2);
+                }
+            });
+            card3.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    callActivity(3);
+                }
+            });
+            card4.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    callActivity(4);
+                }
+            });
+            card5.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    callActivity(5);
+                }
+            });
+            //java Oncreate code code pranjul 1
+            waveLoadingGraph.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    openStepGraph();
+                }
+            });
+
+
         }
 
         //java Oncreate code code pranjul 1
         PieView animatedPie = (PieView) findViewById(R.id.animated_pie_view_1);
 
 
-        PieAngleAnimation animation = new PieAngleAnimation(animatedPie);
-        animation.setDuration(1000); //This is the duration of the animation in millis
-        animatedPie.startAnimation(animation);
-        waveLoadingView2.setProgressValue(90);
-        waveLoadingView2.setBottomTitle("");
-        waveLoadingView2.setCenterTitle(String.format("%d%%",90));
-        waveLoadingView2.setTopTitle("");
-
-        step.setOnClickListener(this);
-        caloriesin.setOnClickListener(this);
-        calories.setOnClickListener(this);
-        improvement.setOnClickListener(this);
-        //listner for card 1
-        card1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                callActivity(1);
-            }
-        });
-        card2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                callActivity(2);
-            }
-        });
-        card3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                callActivity(3);
-            }
-        });
-        card4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                callActivity(4);
-            }
-        });
-        card5.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                callActivity(5);
-            }
-        });
-        //java Oncreate code code pranjul 1
-        waveLoadingGraph.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                openStepGraph();
-            }
-        });
+//        PieAngleAnimation animation = new PieAngleAnimation(animatedPie);
+//        animation.setDuration(1000); //This is the duration of the animation in millis
+//        animatedPie.startAnimation(animation);
+//        waveLoadingView2.setProgressValue(90);
+//        waveLoadingView2.setBottomTitle("");
+//        waveLoadingView2.setCenterTitle(String.format("%d%%",90));
+//        waveLoadingView2.setTopTitle("");
 
 
     }
