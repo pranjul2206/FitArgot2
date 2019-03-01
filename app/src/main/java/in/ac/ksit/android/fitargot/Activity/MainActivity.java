@@ -87,7 +87,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     ImageView step,calories,caloriesin,improvement,SelectedPic,playoption1,prevbttn,nextbttn,joinbttn,temp,exercise;
     String s[]={"steps","calories","something","improvements"};
     FlipperLayout flipper;
-    CardView card1,card2,card3,card4,card5;
+
     //sensor variables
     SensorManager stepm;
     SensorManager lightm;
@@ -134,11 +134,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         option1text1=(TextView)findViewById(R.id.option1text1);
         waveLoadingView2=(WaveLoadingView)findViewById(R.id.waveLoadingView2);
         waveLoadingView3=(WaveLoadingView)findViewById(R.id.waveLoadingView3);
-        card1=(CardView)findViewById(R.id.card1);
-        card2=(CardView)findViewById(R.id.card2);
-        card3=(CardView)findViewById(R.id.card3);
-        card4=(CardView)findViewById(R.id.card4);
-        card5=(CardView)findViewById(R.id.card5);
+
         //--------SLIDE IMAGE
         flipper=(FlipperLayout)findViewById(R.id.flipper);
         setLayout();
@@ -228,37 +224,6 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
             caloriesin.setOnClickListener(this);
             calories.setOnClickListener(this);
             improvement.setOnClickListener(this);
-            //listner for card 1
-            card1.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    callActivity(1);
-                }
-            });
-            card2.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    callActivity(2);
-                }
-            });
-            card3.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    callActivity(3);
-                }
-            });
-            card4.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    callActivity(4);
-                }
-            });
-            card5.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    callActivity(5);
-                }
-            });
 
             //sensors
             stepm = (SensorManager)getSystemService(SENSOR_SERVICE);
