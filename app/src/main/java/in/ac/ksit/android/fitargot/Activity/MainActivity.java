@@ -9,6 +9,7 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.location.Location;
+import android.media.Image;
 import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -83,7 +84,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     WaveLoadingView waveLoadingView2,waveLoadingView3,waveLoadingView4;
     TextView t,pieLesft,option1text1;
     RelativeLayout r,r1,r2,r3;
-    ImageView step,calories,caloriesin,improvement,SelectedPic,playoption1,prevbttn,nextbttn,joinbttn,temp,exee;
+    ImageView step,calories,caloriesin,improvement,SelectedPic,playoption1,prevbttn,nextbttn,joinbttn,temp,exercise;
     String s[]={"steps","calories","something","improvements"};
     FlipperLayout flipper;
     CardView card1,card2,card3,card4,card5;
@@ -99,7 +100,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     }
     //declaration of variables pranjul1
     private boolean isLoggedIn(){
-        return false;
+        return true;
     }
 
     private void init_objects(){
@@ -128,6 +129,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         prevbttn=(ImageView)findViewById(R.id.prevbttn);
         nextbttn=(ImageView)findViewById(R.id.nextbttn);
         joinbttn=(ImageView)findViewById(R.id.joinbttn);
+        exercise=(ImageView)findViewById(R.id.exerciseimage);
         t=(TextView)findViewById(R.id.leftover);
         option1text1=(TextView)findViewById(R.id.option1text1);
         waveLoadingView2=(WaveLoadingView)findViewById(R.id.waveLoadingView2);
@@ -182,8 +184,8 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         setContentView(R.layout.activity_main);
 
         Log.d(TAG,"going to login");
-        Intent intent2=new Intent(this,LoginActivity.class);
-        startActivity(intent2);
+        //Intent intent2=new Intent(this,LoginActivity.class);
+        //startActivity(intent2);
 //        Intent intent=new Intent(this,discover.class);
 //        startActivity(intent);
         permissions.add(Manifest.permission.ACCESS_FINE_LOCATION);
@@ -288,13 +290,20 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
             nextbttn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-
+                    imagestate++;
+                    exercise.setImageResource(images[imagestate]);
 
                 }
             });
 
+            prevbttn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    imagestate--;
+                    exercise.setImageResource(images[imagestate]);
+                }
+            });
         }
-
 
 
 
@@ -521,17 +530,14 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                 waveLoadingView3.setCenterTitle(String.format("%d%%",52));
                 waveLoadingView3.setTopTitle("");
                 break;
-                case R.id.improvementsbutton :
+            case R.id.improvementsbutton :
                 improvement.setImageResource(R.drawable.ximprovemnets);
                 t.setText("DEFEAT PRANJUL");
                 r.setVisibility(View.INVISIBLE);
                 r1.setVisibility(View.INVISIBLE);
                 r2.setVisibility(View.INVISIBLE);
                 r3.setVisibility(View.VISIBLE);
-                waveLoadingView4.setProgressValue(12);
-                waveLoadingView4.setBottomTitle("");
-                waveLoadingView4.setCenterTitle(String.format("%d",12));
-                waveLoadingView4.setTopTitle("");
+
                 break;
 
 
