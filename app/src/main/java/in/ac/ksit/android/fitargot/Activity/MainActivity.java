@@ -194,8 +194,8 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         Log.d(TAG,"going to login");
 //        Intent intent2=new Intent(this,LoginActivity.class);
 //        startActivity(intent2);
-//        Intent intent=new Intent(this,discover.class);
-//        startActivity(intent);
+           Intent intent=new Intent(this,ChallangeActivity.class);
+           startActivity(intent);
         permissions.add(Manifest.permission.ACCESS_FINE_LOCATION);
         permissions.add(Manifest.permission.ACCESS_COARSE_LOCATION);
 
