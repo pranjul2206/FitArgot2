@@ -67,8 +67,9 @@ public class Login extends Fragment {
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
         manager.onActivityResult(requestCode, resultCode, data);
+        super.onActivityResult(requestCode, resultCode, data);
+
         
         Toast.makeText(this.getActivity(), "Login success", Toast.LENGTH_SHORT).show();
     }
@@ -103,7 +104,7 @@ public class Login extends Fragment {
 
                     loginResult.getAccessToken().getUserId();
 
-
+                Log.d("FACEBOOK", loginResult.getAccessToken().getToken());
 
             }
 

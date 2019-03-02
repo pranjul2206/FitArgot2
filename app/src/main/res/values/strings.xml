@@ -15,4 +15,5 @@
         <item>Military</item>
 
     </string-array>
+    <string name="title_activity_sports">SportsActivity</string>
 </resources>

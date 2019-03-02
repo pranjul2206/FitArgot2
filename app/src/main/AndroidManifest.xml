@@ -14,7 +14,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
-        <activity android:name=".Activity.pokemongo"></activity>
+        <activity android:name=".Activity.pokemongo" />
         <activity android:name=".Activity.gameArgot" />
         <activity android:name=".Activity.selfChallange" />
         <activity android:name=".Activity.createChallange" />
@@ -73,6 +73,10 @@
             android:name=".Activity.LoginActivity"
             android:label="@string/title_activity_login"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Activity.SportsActivity"
+            android:label="@string/title_activity_sports"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

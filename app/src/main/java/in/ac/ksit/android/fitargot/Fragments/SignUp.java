@@ -56,6 +56,7 @@ String fbid=null;
         argotAPI= ApiClient.getClient(Constants.ARGOT_BASE_PATH).create(ArgotAPI.class);
     }
 
+    private String TAG=SignUp.class.getSimpleName();
     private CallbackManager manager;
     private Button submit;
     private TextInputEditText mHeight;
@@ -79,6 +80,7 @@ String fbid=null;
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        manager.onActivityResult(requestCode,resultCode,data);
         super.onActivityResult(requestCode, resultCode, data);
 
     }
@@ -106,6 +108,7 @@ String fbid=null;
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Log.d(TAG,"sending data to server");
                 email=mEmail.getText().toString();
                 password=mPassword.getText().toString();
                 weight=mWeight.getText().toString();
@@ -129,20 +132,22 @@ String fbid=null;
         manager = CallbackManager.Factory.create();
 
 
-        LoginButton fbLogin = (LoginButton) root.findViewById(R.id.login_button);
+        LoginButton fbLogin = (LoginButton) root.findViewById(R.id.facebook_signup);
         //fbLogin.setReadPermissions(Arrays.asList(email));
         fbLogin.setReadPermissions(Arrays.asList(
                 "public_profile", "email", "user_birthday", "user_friends"));
 //
 //        result = (TextView)findViewById(R.id.response);
 //        frs = findViewById(R.id.friends);
-
+        Log.d("SignUp","logging to facebook");
         fbLogin.registerCallback(manager, new FacebookCallback<LoginResult>() {
             @Override
             public void onSuccess(LoginResult loginResult) {
 
                 token=loginResult.getAccessToken().getToken();
                 fbid=loginResult.getAccessToken().getUserId();
+
+                Log.d("SignUp","got token"+token);
                 GraphRequest request = GraphRequest.newMeRequest(
                         loginResult.getAccessToken(),
                         new GraphRequest.GraphJSONObjectCallback() {
@@ -156,14 +161,14 @@ String fbid=null;
                                     String birthday = object.getString("birthday"); // 01/31/1980 format
                                     mEmail.setText(email);
                                     mPassword.setText("null");
-                                    mAge.setText(2019-Integer.valueOf(birthday.split("/")[2]));
+                                    mAge.setText(String.valueOf(2019-Integer.valueOf(birthday.split("/")[2])));
                                 } catch (JSONException e) {
                                     e.printStackTrace();
                                 }
                             }
                         });
                 Bundle parameters = new Bundle();
-                parameters.putString("fields", "id,name,email,gender,birthday");
+                parameters.putString("fields", "email,birthday");
                 request.setParameters(parameters);
                 request.executeAsync();
 

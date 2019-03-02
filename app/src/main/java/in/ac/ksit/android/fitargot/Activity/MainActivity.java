@@ -73,6 +73,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     private SupportMapFragment mapFragment;
     private GoogleMap  gMap;
     private PermissionUtil permissionUtil;
+    private CardView playSport;
     private GoogleApiClient googleApiClient;
     int images[]={R.drawable.exercise1,R.drawable.exercise2,R.drawable.exercise3,R.drawable.exercise4};
     int i=0,pieStepVAR=0,playbutton=0,imagestate=0;
@@ -143,6 +144,11 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         //declaration of variables pranjul 1
 
 
+        //  play sports
+        playSport=findViewById(R.id.play_sport);
+        playSport.setOnClickListener(this);
+
+
     }
 
 
@@ -180,8 +186,8 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         setContentView(R.layout.activity_main);
 
         Log.d(TAG,"going to login");
-        //Intent intent2=new Intent(this,LoginActivity.class);
-        //startActivity(intent2);
+//        Intent intent2=new Intent(this,LoginActivity.class);
+//        startActivity(intent2);
 //        Intent intent=new Intent(this,discover.class);
 //        startActivity(intent);
         permissions.add(Manifest.permission.ACCESS_FINE_LOCATION);
@@ -197,9 +203,9 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         if(!isLoggedIn()){
 
-//            Intent intent2=new Intent(this,LoginActivity.class);
-//            startActivity(intent2);
-
+            Intent intent2=new Intent(this,LoginActivity.class);
+            startActivity(intent2);
+            //onDestroy();
 
         }else{
 
@@ -510,7 +516,10 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                 r3.setVisibility(View.VISIBLE);
 
                 break;
-
+            case R.id.play_sport:
+                Intent temp=new Intent(this,SportsActivity.class);
+                startActivity(temp);
+                break;
 
         }
     }
