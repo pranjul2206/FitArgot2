@@ -128,13 +128,13 @@
             />
     </android.support.design.widget.TextInputLayout>
 
-    <Spinner
+    <android.support.v7.widget.AppCompatSpinner
             android:id="@+id/diet_type"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:entries="@array/country_arrays"
             android:prompt="@string/country_prompt">
-        </Spinner>
+        </android.support.v7.widget.AppCompatSpinner>
     <Button
         android:layout_marginTop="10dp"
         android:id="@+id/submit"

@@ -32,6 +32,7 @@ public class SportsActivity extends AppCompatActivity {
         gamePager.setAdapter(adapter);
         tabLayout.setupWithViewPager(gamePager);
 
+
     }
 
 }
