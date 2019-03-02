@@ -16,4 +16,5 @@
 
     </string-array>
     <string name="title_activity_sports">SportsActivity</string>
+    <string name="title_activity_challange">ChallangeActivity</string>
 </resources>

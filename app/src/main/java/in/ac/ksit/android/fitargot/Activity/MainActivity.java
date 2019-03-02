@@ -1,7 +1,9 @@
 package in.ac.ksit.android.fitargot.Activity;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.hardware.Sensor;
@@ -64,6 +66,8 @@ import retrofit2.Response;
 import technolifestyle.com.imageslider.FlipperLayout;
 import technolifestyle.com.imageslider.FlipperView;
 
+import static com.facebook.FacebookSdk.getApplicationContext;
+
 
 public class MainActivity extends AppCompatActivity implements OnMapReadyCallback,GoogleApiClient.ConnectionCallbacks,
         GoogleApiClient.OnConnectionFailedListener, LocationListener,View.OnClickListener {
@@ -101,7 +105,9 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     }
     //declaration of variables pranjul1
     private boolean isLoggedIn(){
-        return false;
+        SharedPreferences preferences=getApplicationContext().getSharedPreferences("APP_DATA",Context.MODE_PRIVATE);
+        return preferences.getBoolean("Logged",false);
+
     }
 
     private void init_objects(){
@@ -205,7 +211,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
             Intent intent2=new Intent(this,LoginActivity.class);
             startActivity(intent2);
-            //onDestroy();
+
 
         }else{
 

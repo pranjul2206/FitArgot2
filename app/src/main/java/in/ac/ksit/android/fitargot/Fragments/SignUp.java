@@ -2,6 +2,7 @@ package in.ac.ksit.android.fitargot.Fragments;
 import android.app.Notification;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -29,11 +30,13 @@ import org.json.JSONObject;
 
 import java.util.Arrays;
 
+import in.ac.ksit.android.fitargot.Activity.MainActivity;
 import in.ac.ksit.android.fitargot.Constants;
 import in.ac.ksit.android.fitargot.Network.ApiClient;
 import in.ac.ksit.android.fitargot.Network.ArgoApiClient;
 import in.ac.ksit.android.fitargot.Network.ArgotAPI;
 import in.ac.ksit.android.fitargot.Network.GoogleApis;
+import in.ac.ksit.android.fitargot.Network.Model.SignUpModel;
 import in.ac.ksit.android.fitargot.R;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -116,18 +119,24 @@ String fbid=null;
                 height=mHeight.getText().toString();
                 age=mAge.getText().toString();
                 Log.d(TAG,"sigining up"+email+password+weight+height+age);
-                argotAPI.registerUser(email,password,fbid,token,weight,height).enqueue(new Callback<String>() {
+                argotAPI.registerUser(email,password,fbid,token,weight,height).enqueue(new Callback<SignUpModel>() {
                     @Override
-                    public void onResponse(Call<String> call, Response<String> response) {
+                    public void onResponse(Call<SignUpModel> call, Response<SignUpModel> response) {
                             Log.d(TAG,"response receivced");
                             if(response.code()==200){
 
-                                Log.d(TAG,"response done"+call.request().body().toString());
+                                Log.d(TAG,"response done"+call.request().body());
+                                SharedPreferences preferences=getApplicationContext().getSharedPreferences("APP_DATA",Context.MODE_PRIVATE);
+                                SharedPreferences.Editor edit=preferences.edit();
+                                edit.putBoolean("Logged",true);
+                                edit.commit();
+                                Intent intent=new Intent(SignUp.this.getActivity(),MainActivity.class);
+                                startActivity(intent);
                             }
                     }
 
                     @Override
-                    public void onFailure(Call<String> call, Throwable t) {
+                    public void onFailure(Call<SignUpModel> call, Throwable t) {
                         Log.d(TAG,"api error"+t.toString()+"url "+call.request().url());
                     }
                 });
