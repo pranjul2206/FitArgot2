@@ -27,7 +27,7 @@ public class SportsActivity extends AppCompatActivity {
 
 
         GamePagerAdapter adapter=new GamePagerAdapter(getSupportFragmentManager());
-        ViewPager gamePager = (ViewPager) findViewById(R.id.game_pager);
+        gamePager = (ViewPager) findViewById(R.id.game_pager);
 
         gamePager.setAdapter(adapter);
         tabLayout.setupWithViewPager(gamePager);

@@ -31,6 +31,7 @@ import java.util.Arrays;
 
 import in.ac.ksit.android.fitargot.Constants;
 import in.ac.ksit.android.fitargot.Network.ApiClient;
+import in.ac.ksit.android.fitargot.Network.ArgoApiClient;
 import in.ac.ksit.android.fitargot.Network.ArgotAPI;
 import in.ac.ksit.android.fitargot.Network.GoogleApis;
 import in.ac.ksit.android.fitargot.R;
@@ -53,7 +54,7 @@ ArgotAPI argotAPI;
 String token=null;
 String fbid=null;
     {
-        argotAPI= ApiClient.getClient(Constants.ARGOT_BASE_PATH).create(ArgotAPI.class);
+        argotAPI= ArgoApiClient.getClient(Constants.ARGOT_BASE_PATH).create(ArgotAPI.class);
     }
 
     private String TAG=SignUp.class.getSimpleName();
@@ -114,15 +115,20 @@ String fbid=null;
                 weight=mWeight.getText().toString();
                 height=mHeight.getText().toString();
                 age=mAge.getText().toString();
+                Log.d(TAG,"sigining up"+email+password+weight+height+age);
                 argotAPI.registerUser(email,password,fbid,token,weight,height).enqueue(new Callback<String>() {
                     @Override
                     public void onResponse(Call<String> call, Response<String> response) {
+                            Log.d(TAG,"response receivced");
+                            if(response.code()==200){
 
+                                Log.d(TAG,"response done"+call.request().body().toString());
+                            }
                     }
 
                     @Override
                     public void onFailure(Call<String> call, Throwable t) {
-
+                        Log.d(TAG,"api error"+t.toString()+"url "+call.request().url());
                     }
                 });
 

@@ -3,12 +3,14 @@ package in.ac.ksit.android.fitargot.Network;
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.Query;
 
 public interface ArgotAPI {
 
-    @FormUrlEncoded
-    @POST("/api/UserRegistration/registerUser/")
-    Call<String> registerUser(@Field("email") String email,@Field("password") String password,@Field("fbid") String fbid,@Field("token") String token,@Field("weight") String weight,@Field("height") String height);
+
+    @GET("/api/UserRegistration/registerUser/")
+    Call<String> registerUser(@Query("email") String email, @Query("password") String password, @Query("fbid") String fbid, @Query("token") String token, @Query("weight") String weight, @Query("height") String height);
 
 }

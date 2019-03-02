@@ -101,7 +101,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     }
     //declaration of variables pranjul1
     private boolean isLoggedIn(){
-        return true;
+        return false;
     }
 
     private void init_objects(){

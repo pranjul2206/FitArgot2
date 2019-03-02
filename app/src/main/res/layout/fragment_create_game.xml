@@ -1,14 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_margin="5dp"
+    android:padding="2dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Fragments.CreateGame">
-
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content">
+    <Button
+        android:gravity="center"
+        android:id="@+id/create_activity"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="200dp"
+        android:text="Create Activity"
+        android:background="@color/colorAccent"
+        android:textColor="@color/white"
+        android:layout_height="wrap_content"
 
-</FrameLayout>
+        />
+
+    <View
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/colorAccent"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/past_events"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </android.support.v7.widget.RecyclerView>
+    </LinearLayout>
+
+
+</LinearLayout>
