@@ -152,7 +152,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         a2=(CardView)findViewById(R.id.modiCARD2);
         a3=(CardView)findViewById(R.id.modiCARD3);
         a4=(CardView)findViewById(R.id.modiCARD4);
-
+        Log.d(TAG,"String "+a1);
 
 
         //--------SLIDE IMAGE
