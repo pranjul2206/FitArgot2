@@ -1,11 +1,653 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragments.ArgotChallenge">
+    android:orientation="vertical"
+    android:background="#292929"
+    android:gravity="center"
+    tools:context=".Fragments.SelfChallenge">
+
 
     <!-- TODO: Update blank fragment layout -->
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:background="#292929"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        <!-- homepge content -->
+
+        <LinearLayout
+            android:id="@+id/ll"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#292929"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <!-- card 1 -->
+            <RelativeLayout
+                android:layout_width="350dp"
+                android:layout_height="160dp"
+                android:clipToPadding="false"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingTop="1dp">
+
+
+                <!-- Front Layout Goes Here -->
+                <ImageView
+                    android:id="@+id/card1image2"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/run">
+
+                </ImageView>
+                <!-- contents of walking exercise -->
+                <RelativeLayout
+                    android:id="@+id/layout1"
+                    android:visibility="invisible"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:layout_width="38dp"
+                        android:layout_height="40dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="25dp"
+                        android:layout_marginTop="26dp"
+                        android:src="@drawable/star" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="75dp"
+                        android:layout_marginTop="25dp"
+                        android:text="RUN !"
+                        android:textColor="#ffffff"
+                        android:textSize="30dp" />
+
+                    <TextView
+                        android:id="@+id/total1"
+                        android:layout_width="69dp"
+                        android:layout_height="43dp"
+
+
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="26dp"
+                        android:layout_marginEnd="64dp"
+                        android:text="1724"
+                        android:textColor="#ffffff"
+                        android:textSize="30dp" />
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="43dp"
+
+
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginTop="26dp"
+                        android:layout_marginEnd="216dp"
+                        android:layout_marginBottom="38dp"
+                        android:text="2000 Steps"
+                        android:textColor="#ffffff"
+                        android:textSize="15dp" />
+
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginStart="28dp"
+                        android:layout_marginTop="106dp"
+                        android:layout_marginBottom="13dp"
+                        android:src="@drawable/progress" />
+
+                    <Chronometer
+                        android:id="@+id/chronometer1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginEnd="230dp"
+                        android:layout_marginBottom="25dp"
+                        android:textColor="#ffffff"
+                        android:textSize="15sp" />
+
+                    <ImageView
+                        android:layout_width="23dp"
+                        android:layout_height="31dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginStart="148dp"
+                        android:layout_marginTop="111dp"
+                        android:layout_marginBottom="17dp"
+                        android:src="@drawable/total" />
+
+                    <TextView
+                        android:id="@+id/calories1"
+                        android:layout_width="100dp"
+                        android:layout_height="43dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginTop="26dp"
+                        android:layout_marginEnd="74dp"
+                        android:layout_marginBottom="1dp"
+                        android:text="1295 cal."
+                        android:textColor="#ffffff"
+                        android:textSize="15dp" />
+
+                    <ImageView
+                        android:layout_width="23dp"
+                        android:layout_height="31dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginStart="281dp"
+                        android:layout_marginTop="111dp"
+                        android:layout_marginBottom="17dp"
+                        android:src="@drawable/coins" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginTop="26dp"
+                        android:layout_marginEnd="37dp"
+                        android:layout_marginBottom="23dp"
+                        android:text="2"
+                        android:textColor="#ffffff"
+                        android:textSize="15dp" />
+
+
+                </RelativeLayout>
+                <!-- complete -->
+            </RelativeLayout>
+            <!-- card 2 -->
+            <RelativeLayout
+                android:layout_width="350dp"
+                android:layout_height="160dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingTop="1dp">
+                <!-- Back Layout Goes Here -->
+                <!-- Front Layout Goes Here -->
+                <ImageView
+                    android:id="@+id/card2image2"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/skipping">
+
+                </ImageView>
+                <!-- card2 contentes -->
+                <RelativeLayout
+                    android:id="@+id/layout2"
+                    android:visibility="invisible"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:layout_width="38dp"
+                        android:layout_height="40dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="25dp"
+                        android:layout_marginTop="26dp"
+                        android:src="@drawable/star" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="75dp"
+                        android:layout_marginTop="25dp"
+                        android:text="SKIPPING !"
+                        android:textColor="#ffffff"
+                        android:textSize="30dp" />
+
+                    <TextView
+                        android:id="@+id/total2"
+                        android:layout_width="69dp"
+                        android:layout_height="43dp"
+
+
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="26dp"
+                        android:layout_marginEnd="64dp"
+                        android:text="1724"
+                        android:textColor="#ffffff"
+                        android:textSize="30dp" />
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="43dp"
+
+
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginTop="26dp"
+                        android:layout_marginEnd="216dp"
+                        android:layout_marginBottom="38dp"
+                        android:text="2000 Steps"
+                        android:textColor="#ffffff"
+                        android:textSize="15dp" />
+
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginStart="28dp"
+                        android:layout_marginTop="106dp"
+                        android:layout_marginBottom="13dp"
+                        android:src="@drawable/progress" />
+
+                    <Chronometer
+                        android:id="@+id/chronometer2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginEnd="230dp"
+                        android:layout_marginBottom="25dp"
+                        android:textColor="#ffffff"
+                        android:textSize="15sp" />
+
+                    <ImageView
+                        android:layout_width="23dp"
+                        android:layout_height="31dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginStart="148dp"
+                        android:layout_marginTop="111dp"
+                        android:layout_marginBottom="17dp"
+                        android:src="@drawable/total" />
+
+                    <TextView
+                        android:id="@+id/calories2"
+                        android:layout_width="100dp"
+                        android:layout_height="43dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginTop="26dp"
+                        android:layout_marginEnd="74dp"
+                        android:layout_marginBottom="1dp"
+                        android:text="1295 cal."
+                        android:textColor="#ffffff"
+                        android:textSize="15dp" />
+
+                    <ImageView
+                        android:layout_width="23dp"
+                        android:layout_height="31dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginStart="281dp"
+                        android:layout_marginTop="111dp"
+                        android:layout_marginBottom="17dp"
+                        android:src="@drawable/coins" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginTop="26dp"
+                        android:layout_marginEnd="37dp"
+                        android:layout_marginBottom="23dp"
+                        android:text="2"
+                        android:textColor="#ffffff"
+                        android:textSize="15dp" />
+
+
+                </RelativeLayout>
+                <!-- complete -->
+            </RelativeLayout>
+            <!-- card 3 -->
+            <RelativeLayout
+                android:layout_width="350dp"
+                android:layout_height="160dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingTop="1dp">
+                <!-- Back Layout Goes Here -->
+                <ImageView
+                    android:id="@+id/card3image1"
+                    android:layout_width="match_parent"
+                    android:layout_height="160dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/template" />
+                <!-- Front Layout Goes Here -->
+                <ImageView
+                    android:id="@+id/card3image2"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/aerobics">
+                </ImageView>
+
+
+
+                <!-- card3 contents -->
+                <RelativeLayout
+                    android:id="@+id/layout3"
+                    android:visibility="invisible"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:layout_width="38dp"
+                        android:layout_height="40dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="25dp"
+                        android:layout_marginTop="26dp"
+                        android:src="@drawable/star" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="75dp"
+                        android:layout_marginTop="25dp"
+                        android:text="Aerobics !"
+                        android:textColor="#ffffff"
+                        android:textSize="30dp" />
+
+                    <TextView
+                        android:id="@+id/total3"
+                        android:layout_width="69dp"
+                        android:layout_height="43dp"
+
+
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="26dp"
+                        android:layout_marginEnd="64dp"
+                        android:text="1724"
+                        android:textColor="#ffffff"
+                        android:textSize="30dp" />
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="43dp"
+
+
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginTop="26dp"
+                        android:layout_marginEnd="216dp"
+                        android:layout_marginBottom="38dp"
+                        android:text="2000 Steps"
+                        android:textColor="#ffffff"
+                        android:textSize="15dp" />
+
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginStart="28dp"
+                        android:layout_marginTop="106dp"
+                        android:layout_marginBottom="13dp"
+                        android:src="@drawable/progress" />
+
+                    <Chronometer
+                        android:id="@+id/chronometer3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginEnd="230dp"
+                        android:layout_marginBottom="25dp"
+                        android:textColor="#ffffff"
+                        android:textSize="15sp" />
+
+                    <ImageView
+                        android:layout_width="23dp"
+                        android:layout_height="31dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginStart="148dp"
+                        android:layout_marginTop="111dp"
+                        android:layout_marginBottom="17dp"
+                        android:src="@drawable/total" />
+
+                    <TextView
+                        android:id="@+id/calories3"
+                        android:layout_width="100dp"
+                        android:layout_height="43dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginTop="26dp"
+                        android:layout_marginEnd="74dp"
+                        android:layout_marginBottom="1dp"
+                        android:text="1295 cal."
+                        android:textColor="#ffffff"
+                        android:textSize="15dp" />
+
+                    <ImageView
+                        android:layout_width="23dp"
+                        android:layout_height="31dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginStart="281dp"
+                        android:layout_marginTop="111dp"
+                        android:layout_marginBottom="17dp"
+                        android:src="@drawable/coins" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginTop="26dp"
+                        android:layout_marginEnd="37dp"
+                        android:layout_marginBottom="23dp"
+                        android:text="2"
+                        android:textColor="#ffffff"
+                        android:textSize="15dp" />
+
+
+                </RelativeLayout>
+                <!-- complete -->
+            </RelativeLayout>
+            <!-- card 4 -->
+            <RelativeLayout
+                android:layout_width="350dp"
+                android:layout_height="160dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingTop="1dp">
+
+                <!-- Back Layout Goes Here -->
+                <ImageView
+                    android:id="@+id/card4image1"
+                    android:layout_width="match_parent"
+                    android:layout_height="160dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/template" />
+                <!-- Front Layout Goes Here -->
+                <ImageView
+                    android:id="@+id/card4image2"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/cycling">
+
+                </ImageView>
+                <!--card4 contents -->
+                <RelativeLayout
+                    android:id="@+id/layout4"
+                    android:visibility="invisible"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:layout_width="38dp"
+                        android:layout_height="40dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="25dp"
+                        android:layout_marginTop="26dp"
+                        android:src="@drawable/star" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="75dp"
+                        android:layout_marginTop="25dp"
+                        android:text="CYCLING !"
+                        android:textColor="#ffffff"
+                        android:textSize="30dp" />
+
+                    <TextView
+                        android:id="@+id/total4"
+                        android:layout_width="69dp"
+                        android:layout_height="43dp"
+
+
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="26dp"
+                        android:layout_marginEnd="64dp"
+                        android:text="1724"
+                        android:textColor="#ffffff"
+                        android:textSize="30dp" />
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="43dp"
+
+
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginTop="26dp"
+                        android:layout_marginEnd="216dp"
+                        android:layout_marginBottom="38dp"
+                        android:text="2000 Steps"
+                        android:textColor="#ffffff"
+                        android:textSize="15dp" />
+
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginStart="28dp"
+                        android:layout_marginTop="106dp"
+                        android:layout_marginBottom="13dp"
+                        android:src="@drawable/progress" />
+
+                    <Chronometer
+                        android:id="@+id/chronometer4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginEnd="230dp"
+                        android:layout_marginBottom="25dp"
+                        android:textColor="#ffffff"
+                        android:textSize="15sp" />
+
+                    <ImageView
+                        android:layout_width="23dp"
+                        android:layout_height="31dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginStart="148dp"
+                        android:layout_marginTop="111dp"
+                        android:layout_marginBottom="17dp"
+                        android:src="@drawable/total" />
+
+                    <TextView
+                        android:id="@+id/calories4"
+                        android:layout_width="100dp"
+                        android:layout_height="43dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginTop="26dp"
+                        android:layout_marginEnd="74dp"
+                        android:layout_marginBottom="1dp"
+                        android:text="1295 cal."
+                        android:textColor="#ffffff"
+                        android:textSize="15dp" />
+
+                    <ImageView
+                        android:layout_width="23dp"
+                        android:layout_height="31dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginStart="281dp"
+                        android:layout_marginTop="111dp"
+                        android:layout_marginBottom="17dp"
+                        android:src="@drawable/coins" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginTop="26dp"
+                        android:layout_marginEnd="37dp"
+                        android:layout_marginBottom="23dp"
+                        android:text="2"
+                        android:textColor="#ffffff"
+                        android:textSize="15dp" />
+
+
+                </RelativeLayout>
+                <!-- complete -->
+            </RelativeLayout>
+
+
+
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
 
 
 </FrameLayout>

@@ -1,14 +1,32 @@
 package in.ac.ksit.android.fitargot.Fragments;
 
 import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.Preference;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.RelativeLayout;
 
+import in.ac.ksit.android.fitargot.Activity.CreateSportActivity;
+import in.ac.ksit.android.fitargot.Adapters.PastActivityAdapter;
+import in.ac.ksit.android.fitargot.Constants;
+import in.ac.ksit.android.fitargot.Network.ArgoApiClient;
+import in.ac.ksit.android.fitargot.Network.ArgotAPI;
+import in.ac.ksit.android.fitargot.Network.Model.PastEventModel;
 import in.ac.ksit.android.fitargot.R;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class CreateGame extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
@@ -19,9 +37,18 @@ public class CreateGame extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-
+    String TAG=CreateGame.class.getSimpleName();
+    private ArgotAPI argotAPI=null;
+    private View root;
+    private Button createActivity;
+    private  RecyclerView recyclerView;
+    private PastActivityAdapter adapter;
     public CreateGame() {
         // Required empty public constructor
+    }
+
+    {
+        argotAPI=ArgoApiClient.getClient(Constants.ARGOT_BASE_PATH).create(ArgotAPI.class);
     }
 
     /**
@@ -55,7 +82,56 @@ public class CreateGame extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_create_game, container, false);
+        root=inflater.inflate(R.layout.fragment_create_game, container, false);
+        return root;
     }
 
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        recyclerView=root.findViewById(R.id.past_events);
+        createActivity=root.findViewById(R.id.create_activity);
+
+
+        adapter=new PastActivityAdapter(this.getActivity(),null);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
+        recyclerView.setAdapter(adapter);
+
+        SharedPreferences preferences= getActivity().getSharedPreferences("APP_DATA",Context.MODE_PRIVATE);
+        if(preferences.getBoolean("Logged",false))
+        {
+            String uid=preferences.getString("UID",null);
+            if(uid!=null)
+            argotAPI.getUsersEvent(uid).enqueue(new Callback<PastEventModel>() {
+                @Override
+                public void onResponse(Call<PastEventModel> call, Response<PastEventModel> response) {
+
+                    if(response.code()==200 ) {
+                        Log.d(TAG,"success full response");
+                        adapter.setData(response.body().getResult());
+
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<PastEventModel> call, Throwable t) {
+
+                    Log.d(TAG,"EROOR");
+
+                }
+            });
+
+        }
+
+
+        createActivity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(getActivity(),CreateSportActivity.class);
+                startActivity(intent);
+
+            }
+        });
+
+    }
 }
