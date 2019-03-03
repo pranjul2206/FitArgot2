@@ -20,33 +20,17 @@
             android:layout_width="170dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            app:cardBackgroundColor="@color/black">
+            app:cardBackgroundColor="@color/white">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="REDEEM"
-                android:textColor="@color/white"
+                android:textColor="@color/colorAccent"
                 android:textSize="30dp" />
         </android.support.v7.widget.CardView>
 
-        <android.support.v7.widget.CardView
-            android:layout_width="170dp"
-            android:layout_height="match_parent"
-            android:id="@+id/modiCARD2"
-            android:layout_weight="1"
-            android:paddingLeft="10dp"
-            app:cardBackgroundColor="@color/black">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="TRACK"
-                android:textColor="@color/white"
-                android:textSize="30dp" />
-        </android.support.v7.widget.CardView>
     </LinearLayout>
 
     <LinearLayout
@@ -60,21 +44,7 @@
         android:paddingLeft="10dp"
         android:paddingRight="10dp">
 
-        <android.support.v7.widget.CardView
-            android:id="@+id/modiCARD3"
-            android:layout_width="170dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            app:cardBackgroundColor="@color/black">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="SOCIAL"
-                android:textColor="@color/white"
-                android:textSize="30dp" />
-        </android.support.v7.widget.CardView>
 
         <android.support.v7.widget.CardView
             android:id="@+id/modiCARD4"

@@ -148,11 +148,19 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         option1text1=(TextView)findViewById(R.id.option1text1);
         waveLoadingView2=(WaveLoadingView)findViewById(R.id.waveLoadingView2);
         waveLoadingView3=(WaveLoadingView)findViewById(R.id.waveLoadingView3);
+<<<<<<< HEAD
         //a1=(CardView)findViewById(R.id.modiCARD1);
        // a2=(CardView)findViewById(R.id.modiCARD2);
         //a3=(CardView)findViewById(R.id.modiCARD3);
         //a4=(CardView)findViewById(R.id.modiCARD4);
 
+=======
+        a1=(CardView)findViewById(R.id.modiCARD1);
+        a2=(CardView)findViewById(R.id.modiCARD2);
+        a3=(CardView)findViewById(R.id.modiCARD3);
+        a4=(CardView)findViewById(R.id.modiCARD4);
+        Log.d(TAG,"String "+a1);
+>>>>>>> 9b20631123efc7f8c557a52e8902eeddbf6becbd
 
 
         //--------SLIDE IMAGE
