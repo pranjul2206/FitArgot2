@@ -28,6 +28,7 @@ public interface ArgotAPI {
     Call<Response> addEvent(@Query("uid") String uid, @Query("pdate") String date, @Query("stime") String time, @Query("etime") String etime, @Query("level") String level, @Query("participants") String nop, @Query("address") String address, @Query("gname") String gname);
 
 
+
     @GET("/api/GPSLocation/update/")
     Call<Response> geoPush(@Query("lat") String lat,@Query("lang") String lang,@Query("id") String uid);
 
