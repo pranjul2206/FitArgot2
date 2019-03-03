@@ -50,13 +50,14 @@ public class FoodsActivity extends AppCompatActivity {
 
 
     ImageView camera;
+    SearchableSpinner searchableSpinner;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_foods);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        SearchableSpinner searchableSpinner;
         List<DietData> diets = new ArrayList<DietData>();
         diets.add(new DietData("Lunch", "Whole grain Roti With Mixed Vegitable curry", "Multi Grain Chapati With Mixed Vegitable curry"));
 

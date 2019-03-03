@@ -96,7 +96,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     ImageView step,calories,caloriesin,improvement,SelectedPic,playoption1,prevbttn,nextbttn,joinbttn,temp,exercise,challangesprjarehai,arcamera,arpehelwan;
     String s[]={"steps","calories","something","improvements"};
     FlipperLayout flipper;
-    CardView a1,a2,a3,a4;
+    //CardView a1,a2,a3,a4;
     //sensor variables
     SensorManager stepm;
     SensorManager lightm;
@@ -148,10 +148,10 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         option1text1=(TextView)findViewById(R.id.option1text1);
         waveLoadingView2=(WaveLoadingView)findViewById(R.id.waveLoadingView2);
         waveLoadingView3=(WaveLoadingView)findViewById(R.id.waveLoadingView3);
-        a1=(CardView)findViewById(R.id.modiCARD1);
-        a2=(CardView)findViewById(R.id.modiCARD2);
-        a3=(CardView)findViewById(R.id.modiCARD3);
-        a4=(CardView)findViewById(R.id.modiCARD4);
+        //a1=(CardView)findViewById(R.id.modiCARD1);
+       // a2=(CardView)findViewById(R.id.modiCARD2);
+        //a3=(CardView)findViewById(R.id.modiCARD3);
+        //a4=(CardView)findViewById(R.id.modiCARD4);
 
 
 
@@ -330,7 +330,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                 }
             });
         }
-        a1.setOnClickListener(new View.OnClickListener() {
+        /*a1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 calla1();
@@ -353,8 +353,8 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
             public void onClick(View view) {
                 calla4();
             }
-        });
-       r2.setOnClickListener(new View.OnClickListener() {
+        }); */
+        waveLoadingView3.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View view) {
                Intent intent=new Intent(MainActivity.this,FoodsActivity.class);
