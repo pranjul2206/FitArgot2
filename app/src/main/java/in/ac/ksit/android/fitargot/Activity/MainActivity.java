@@ -27,6 +27,7 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -81,6 +82,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     private PermissionUtil permissionUtil;
     private CardView playSport;
     private GoogleApiClient googleApiClient;
+    LinearLayout challangeprjayga;
     int images[]={R.drawable.exercise1,R.drawable.exercise2,R.drawable.exercise3,R.drawable.exercise4};
     int i=0,pieStepVAR=0,playbutton=0,imagestate=0;
     float value=0;
@@ -143,6 +145,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         option1text1=(TextView)findViewById(R.id.option1text1);
         waveLoadingView2=(WaveLoadingView)findViewById(R.id.waveLoadingView2);
         waveLoadingView3=(WaveLoadingView)findViewById(R.id.waveLoadingView3);
+        challangeprjayga=(LinearLayout)findViewById(R.id.challangeprjayga);
 
         //--------SLIDE IMAGE
         flipper=(FlipperLayout)findViewById(R.id.flipper);
@@ -196,8 +199,8 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         Log.d(TAG,"going to login");
 //        Intent intent2=new Intent(this,LoginActivity.class);
 //        startActivity(intent2);
-//        Intent intent=new Intent(this,discover.class);
-//        startActivity(intent);
+           Intent intent=new Intent(this,ChallangeActivity.class);
+           startActivity(intent);
         permissions.add(Manifest.permission.ACCESS_FINE_LOCATION);
         permissions.add(Manifest.permission.ACCESS_COARSE_LOCATION);
 
@@ -254,6 +257,12 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
             stepsinoption1 = stepm.getDefaultSensor(Sensor.TYPE_STEP_COUNTER);
 
             stepm.registerListener(listener_light, light, SensorManager.SENSOR_DELAY_FASTEST);
+            challangeprjayga.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                   challangeprjaygamethod();
+                }
+            });
             playoption1.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -327,9 +336,12 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                 value=event.values[0];
                 pieStepVAR=1;
                 event.values[0]=0;
+
             }
             else{
                 animatedPie.setInnerText((event.values[0]-value)+"");
+               //animatedPie.setPercentage();
+                animatedPie.setPieAngle(((event.values[0]-value)/5));
             }}
 
         }
@@ -339,6 +351,11 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         }
     };
+    public void challangeprjaygamethod()
+    {
+        Intent intent2=new Intent(this,ChallangeActivity.class);
+        startActivity(intent2);
+    }
     private void startanimation(TextView s)
     {
         Animation blinkanimation = AnimationUtils.loadAnimation(this, R.anim.blink_anim);
