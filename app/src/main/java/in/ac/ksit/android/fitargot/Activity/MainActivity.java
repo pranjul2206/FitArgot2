@@ -93,10 +93,10 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     WaveLoadingView waveLoadingView2,waveLoadingView3,waveLoadingView4;
     TextView t,pieLesft,option1text1;
     RelativeLayout r,r1,r2,r3;
-    ImageView step,calories,caloriesin,improvement,SelectedPic,playoption1,prevbttn,nextbttn,joinbttn,temp,exercise,challangesprjarehai,arcamera;
+    ImageView step,calories,caloriesin,improvement,SelectedPic,playoption1,prevbttn,nextbttn,joinbttn,temp,exercise,challangesprjarehai,arcamera,arpehelwan;
     String s[]={"steps","calories","something","improvements"};
     FlipperLayout flipper;
-
+    CardView a1,a2,a3,a4;
     //sensor variables
     SensorManager stepm;
     SensorManager lightm;
@@ -142,12 +142,16 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         joinbttn=(ImageView)findViewById(R.id.joinbttn);
         exercise=(ImageView)findViewById(R.id.exerciseimage);
         arcamera=(ImageView)findViewById(R.id.arcamera);
+        arpehelwan=(ImageView)findViewById(R.id.arpehelwan);
         challangesprjarehai=(ImageView)findViewById(R.id.challangesprjarehai);
         t=(TextView)findViewById(R.id.leftover);
         option1text1=(TextView)findViewById(R.id.option1text1);
         waveLoadingView2=(WaveLoadingView)findViewById(R.id.waveLoadingView2);
         waveLoadingView3=(WaveLoadingView)findViewById(R.id.waveLoadingView3);
-
+        a1=(CardView)findViewById(R.id.modiCARD1);
+        a2=(CardView)findViewById(R.id.modiCARD2);
+        a3=(CardView)findViewById(R.id.modiCARD3);
+        a4=(CardView)findViewById(R.id.modiCARD4);
 
         //--------SLIDE IMAGE
         flipper=(FlipperLayout)findViewById(R.id.flipper);
@@ -261,6 +265,14 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                     challangeprjaygamethod();
                 }
             });
+            arpehelwan.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent=new Intent();
+                    intent.setComponent(new ComponentName("com.cdb.qwhj","com.unity3d.player.UnityPlayerActivity"));
+                    startActivity(intent);
+                }
+            });
             playoption1.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -311,7 +323,30 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                 }
             });
         }
-
+        a1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                calla1();
+            }
+        });
+        a2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                calla2();
+            }
+        });
+        a3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                calla3();
+            }
+        });
+        a4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                calla4();
+            }
+        });
 
 
     }
@@ -373,7 +408,26 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         Intent intent=new Intent(this,StepsGraphs.class);
         startActivity(intent);
     }
-
+        public void calla1()
+        {
+            Intent intent2=new Intent(this,redeem.class);
+            startActivity(intent2);
+        }
+    public void calla2()
+    {
+        Intent intent2=new Intent(this,redeem.class);
+        startActivity(intent2);
+    }
+    public void calla3()
+    {
+        Intent intent2=new Intent(this,socialnetwork.class);
+        startActivity(intent2);
+    }
+    public void calla4()
+    {
+        Intent intent2=new Intent(this,StepsGraphs.class);
+        startActivity(intent2);
+    }
     public void callActivity(int n)
     { Intent intent;
         switch (n)

@@ -45,7 +45,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="200dp"
                     android:layout_gravity="center"
-                    android:src="@drawable/run">
+                    android:src="@drawable/argot1">
 
                 </ImageView>
                 <!-- contents of walking exercise -->
@@ -72,7 +72,7 @@
                         android:layout_alignParentTop="true"
                         android:layout_marginStart="75dp"
                         android:layout_marginTop="25dp"
-                        android:text="RUN !"
+                        android:text="SKIP !"
                         android:textColor="#ffffff"
                         android:textSize="30dp" />
 
@@ -193,7 +193,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="200dp"
                     android:layout_gravity="center"
-                    android:src="@drawable/skipping">
+                    android:src="@drawable/argot2">
 
                 </ImageView>
                 <!-- card2 contentes -->
@@ -220,7 +220,7 @@
                         android:layout_alignParentTop="true"
                         android:layout_marginStart="75dp"
                         android:layout_marginTop="25dp"
-                        android:text="SKIPPING !"
+                        android:text="ABS !"
                         android:textColor="#ffffff"
                         android:textSize="30dp" />
 
@@ -347,7 +347,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="200dp"
                     android:layout_gravity="center"
-                    android:src="@drawable/aerobics">
+                    android:src="@drawable/argot3">
                 </ImageView>
 
 
@@ -376,7 +376,7 @@
                         android:layout_alignParentTop="true"
                         android:layout_marginStart="75dp"
                         android:layout_marginTop="25dp"
-                        android:text="Aerobics !"
+                        android:text="STEPS !"
                         android:textColor="#ffffff"
                         android:textSize="30dp" />
 
@@ -504,7 +504,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="200dp"
                     android:layout_gravity="center"
-                    android:src="@drawable/cycling">
+                    android:src="@drawable/argot4">
 
                 </ImageView>
                 <!--card4 contents -->
@@ -531,7 +531,7 @@
                         android:layout_alignParentTop="true"
                         android:layout_marginStart="75dp"
                         android:layout_marginTop="25dp"
-                        android:text="CYCLING !"
+                        android:text="TRECKING !"
                         android:textColor="#ffffff"
                         android:textSize="30dp" />
 

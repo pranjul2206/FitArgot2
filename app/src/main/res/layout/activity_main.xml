@@ -28,6 +28,15 @@
                             android:scaleType="centerCrop"
                             android:src="@drawable/sky"/>
 
+                        <ImageView
+                            android:id="@+id/arpehelwan"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_alignParentTop="true"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginEnd="19dp"
+                            android:src="@drawable/camera" />
+
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="5dp"
