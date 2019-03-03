@@ -6,20 +6,12 @@ import com.google.gson.annotations.SerializedName;
 
 public class SignUpModel {
 
-    @SerializedName("status")
-    @Expose
-    private String status;
     @SerializedName("registration_status")
     @Expose
     private String registrationStatus;
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
+    @SerializedName("user_id")
+    @Expose
+    private String userId;
 
     public String getRegistrationStatus() {
         return registrationStatus;
@@ -27,6 +19,14 @@ public class SignUpModel {
 
     public void setRegistrationStatus(String registrationStatus) {
         this.registrationStatus = registrationStatus;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String  userId) {
+        this.userId = userId;
     }
 
 }

@@ -51,7 +51,9 @@ import java.util.ArrayList;
 
 import az.plainpie.PieView;
 import az.plainpie.animation.PieAngleAnimation;
+import in.ac.ksit.android.fitargot.BackgroundUpdater;
 import in.ac.ksit.android.fitargot.Constants;
+import in.ac.ksit.android.fitargot.GpsService;
 import in.ac.ksit.android.fitargot.Network.ApiClient;
 import in.ac.ksit.android.fitargot.Network.GoogleApis;
 import in.ac.ksit.android.fitargot.Network.Model.PlaceModel;
@@ -215,7 +217,14 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         }else{
 
-                bind_view();
+                Intent gps=new Intent(this,GpsService.class);
+                startService(gps);
+
+                Intent background=new Intent(this,BackgroundUpdater.class);
+                startService(background);
+
+
+            bind_view();
                 bind_action();
 
             //java Oncreate code code pranjul 1

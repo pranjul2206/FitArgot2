@@ -24,6 +24,18 @@
 
     </string-array>
 
+
+    <string-array name="sports_arrays">
+        <item>Volly Ball</item>
+        <item>Foot Ball</item>
+        <item>Badminton</item>
+        <item>Cricket</item>
+        <item>Hockey</item>
+        <item>Bowling</item>
+        <item>Basket Ball</item>
+    </string-array>
+
     <string name="title_activity_sports">SportsActivity</string>
     <string name="title_activity_challange">ChallangeActivity</string>
+    <string name="title_activity_create_sport">CreateSportActivity</string>
 </resources>

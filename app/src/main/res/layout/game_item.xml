@@ -42,6 +42,7 @@
         <TextView
             android:drawableLeft="@drawable/ic_location_searching_black_24dp"
             android:gravity="center"
+            android:id="@+id/address"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="5th main ittamadu,banashankari"/>
@@ -51,6 +52,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
     <android.support.v7.widget.AppCompatSpinner
+        android:id="@+id/level"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:entries="@array/level_arrays"

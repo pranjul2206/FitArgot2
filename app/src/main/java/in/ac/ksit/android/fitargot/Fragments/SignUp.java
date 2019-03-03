@@ -129,6 +129,8 @@ String fbid=null;
                                 SharedPreferences preferences=getApplicationContext().getSharedPreferences("APP_DATA",Context.MODE_PRIVATE);
                                 SharedPreferences.Editor edit=preferences.edit();
                                 edit.putBoolean("Logged",true);
+                                edit.putString("UID",response.body().getUserId());
+
                                 edit.commit();
                                 Intent intent=new Intent(SignUp.this.getActivity(),MainActivity.class);
                                 startActivity(intent);
