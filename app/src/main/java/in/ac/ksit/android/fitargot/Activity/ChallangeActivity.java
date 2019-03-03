@@ -1,5 +1,6 @@
 package in.ac.ksit.android.fitargot.Activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -29,9 +30,18 @@ public class ChallangeActivity extends AppCompatActivity {
         ChallengeAdapter adapter=new ChallengeAdapter(getSupportFragmentManager());
         mViewPager.setAdapter(adapter);
         tabLayout.setupWithViewPager(mViewPager);
+        FloatingActionButton fab=(FloatingActionButton)findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent launchIntent=getPackageManager().getLaunchIntentForPackage("com.dvzczx.cascac");
+                startActivity(launchIntent);
+            }
+        });
 
 
 
     }
 
 }
+3

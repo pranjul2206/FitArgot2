@@ -9,6 +9,7 @@
     android:gravity="center"
     tools:context=".Fragments.SelfChallenge">
 
+
     <!-- TODO: Update blank fragment layout -->
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -641,5 +642,11 @@
 
         </LinearLayout>
     </android.support.v4.widget.NestedScrollView>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+
 
 </FrameLayout>

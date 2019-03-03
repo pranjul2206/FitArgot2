@@ -29,9 +29,11 @@ import static android.support.v4.content.ContextCompat.getSystemService;
 public class SelfChallenge extends Fragment {
     ImageView  c1i2,  c2i2,  c3i2,  c4i2;
     RelativeLayout r1, r2, r3, r4;
-    TextView t1,t2,t3,t4;
+    TextView t1,t2,t3,t4,c1;
     int i = 0,leftover=0;
     Float blabla;
+    int caloriarray[][]={{55,64,73,82},{33,38,44,49}};
+
     private boolean running;
     private Chronometer chronometer1;
     private long pauseOffset;
@@ -55,6 +57,7 @@ public class SelfChallenge extends Fragment {
         t2=(TextView)v.findViewById(R.id.total2);
         t3=(TextView)v.findViewById(R.id.total3);
         t4=(TextView)v.findViewById(R.id.total4);
+        c1=(TextView)v.findViewById(R.id.calories1);
         //snsors
         stepm = (SensorManager) getActivity().getSystemService(Context.SENSOR_SERVICE);
 
@@ -146,6 +149,7 @@ public class SelfChallenge extends Fragment {
         public void onSensorChanged(SensorEvent event) {
 
             t2.setText(event.values[0]+"");
+            c1.setText(((caloriarray[1][1]/1000)*event.values[0])+"");
             if(event.values[0] <= 1.0f) {
                 if(step == null);
                 else stepm.registerListener(listner_step, step, SensorManager.SENSOR_DELAY_FASTEST);

@@ -5,12 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Activity.socialnetwork">
+
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
         android:layout_gravity="center"
-        android:orientation="vertical"
         android:background="#292929"
+        android:orientation="vertical"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
         <!-- homepge content -->
         <LinearLayout
@@ -31,6 +34,14 @@
                 android:orientation="horizontal"
                 android:paddingTop="1dp">
 
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="17dp"
+                    android:src="@drawable/camera" />
+
                 <!-- Back Layout Goes Here -->
                 <android.support.v7.widget.CardView
                     android:layout_width="80dp"
@@ -46,322 +57,166 @@
                     app:cardCornerRadius="50dp">
 
                     <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent" />
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/insta1"/>
                 </android.support.v7.widget.CardView>
 
-
-
-                <!-- complete -->
-            </RelativeLayout>
-            <!-- card 2 -->
-
-            <!-- card 3 -->
-            <RelativeLayout
-                android:layout_width="350dp"
-                android:layout_height="160dp"
-                android:gravity="center"
-                android:orientation="horizontal"
-                android:paddingTop="1dp">
-                <!-- Back Layout Goes Here -->
-                <!-- Front Layout Goes Here -->
-                <ImageView
-                    android:id="@+id/card3image2"
-                    android:layout_width="match_parent"
-                    android:layout_height="200dp"
-                    android:layout_gravity="center"
-                    android:src="@drawable/aerobics">
-                </ImageView>
-
-
-
-                <!-- card3 contents -->
                 <RelativeLayout
-                    android:id="@+id/layout3"
-                    android:visibility="invisible"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_width="265dp"
+                    android:layout_height="47dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="85dp"
+                    android:layout_marginTop="36dp">
 
-                    <ImageView
-                        android:layout_width="38dp"
-                        android:layout_height="40dp"
-                        android:layout_alignParentStart="true"
+                    <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="FOLLOWERS"
+                    android:textColor="#ffffff" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:layout_alignParentTop="true"
-                        android:layout_marginStart="25dp"
-                        android:layout_marginTop="26dp"
-                        android:src="@drawable/star" />
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="0dp"
+                        android:layout_marginEnd="77dp"
+                        android:text="FOLLOWING"
+                        android:textColor="#ffffff" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginEnd="10dp"
+                        android:text="POSTS"
+                        android:textColor="#ffffff" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginStart="38dp"
+                        android:layout_marginBottom="0dp"
+                        android:text="100"
+                        android:textColor="#ffffff" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginStart="38dp"
+                        android:layout_marginBottom="0dp"
+                        android:text="100"
+                        android:textColor="#ffffff" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
 
-
-                        android:layout_alignParentTop="true"
-                        android:layout_marginStart="75dp"
-                        android:layout_marginTop="25dp"
-                        android:text="Aerobics !"
-                        android:textColor="#ffffff"
-                        android:textSize="30dp" />
-
-                    <TextView
-                        android:id="@+id/total3"
-                        android:layout_width="69dp"
-                        android:layout_height="43dp"
-
-
-                        android:layout_alignParentEnd="true"
-                        android:layout_marginTop="26dp"
-                        android:layout_marginEnd="64dp"
-                        android:text="1724"
-                        android:textColor="#ffffff"
-                        android:textSize="30dp" />
-
-                    <TextView
-                        android:layout_width="100dp"
-                        android:layout_height="43dp"
-
-
-                        android:layout_alignParentEnd="true"
                         android:layout_alignParentBottom="true"
-                        android:layout_marginTop="26dp"
-                        android:layout_marginEnd="216dp"
-                        android:layout_marginBottom="38dp"
-                        android:text="2000 Steps"
-                        android:textColor="#ffffff"
-                        android:textSize="15dp" />
-
-                    <ImageView
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
-                        android:layout_alignParentStart="true"
-                        android:layout_alignParentTop="true"
-                        android:layout_alignParentBottom="true"
-                        android:layout_marginStart="28dp"
-                        android:layout_marginTop="106dp"
-                        android:layout_marginBottom="13dp"
-                        android:src="@drawable/progress" />
-
-                    <Chronometer
-                        android:id="@+id/chronometer3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-
-                        android:layout_alignParentEnd="true"
-                        android:layout_alignParentBottom="true"
-                        android:layout_marginEnd="230dp"
-                        android:layout_marginBottom="25dp"
-                        android:textColor="#ffffff"
-                        android:textSize="15sp" />
-
-                    <ImageView
-                        android:layout_width="23dp"
-                        android:layout_height="31dp"
-                        android:layout_alignParentStart="true"
-                        android:layout_alignParentTop="true"
-                        android:layout_alignParentBottom="true"
-                        android:layout_marginStart="148dp"
-                        android:layout_marginTop="111dp"
-                        android:layout_marginBottom="17dp"
-                        android:src="@drawable/total" />
-
-                    <TextView
-                        android:id="@+id/calories3"
-                        android:layout_width="100dp"
-                        android:layout_height="43dp"
-                        android:layout_alignParentEnd="true"
-                        android:layout_alignParentBottom="true"
-                        android:layout_marginTop="26dp"
-                        android:layout_marginEnd="74dp"
-                        android:layout_marginBottom="1dp"
-                        android:text="1295 cal."
-                        android:textColor="#ffffff"
-                        android:textSize="15dp" />
-
-                    <ImageView
-                        android:layout_width="23dp"
-                        android:layout_height="31dp"
-                        android:layout_alignParentStart="true"
-                        android:layout_alignParentTop="true"
-                        android:layout_alignParentBottom="true"
-                        android:layout_marginStart="281dp"
-                        android:layout_marginTop="111dp"
-                        android:layout_marginBottom="17dp"
-                        android:src="@drawable/coins" />
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginBottom="0dp"
+                        android:text="100"
+                        android:textColor="#ffffff" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
 
-
                         android:layout_alignParentEnd="true"
                         android:layout_alignParentBottom="true"
-                        android:layout_marginTop="26dp"
-                        android:layout_marginEnd="37dp"
-                        android:layout_marginBottom="23dp"
-                        android:text="2"
-                        android:textColor="#ffffff"
-                        android:textSize="15dp" />
+                        android:layout_marginEnd="23dp"
+                        android:layout_marginBottom="0dp"
+                        android:text="4"
+                        android:textColor="#ffffff" />
 
 
                 </RelativeLayout>
+
+
                 <!-- complete -->
             </RelativeLayout>
-            <!-- card 4 -->
             <RelativeLayout
-                android:layout_width="350dp"
-                android:layout_height="160dp"
-                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
                 android:orientation="horizontal"
-                android:paddingTop="1dp">
+                >
 
-                <!-- Back Layout Goes Here -->
-                <ImageView
-                    android:id="@+id/card4image1"
-                    android:layout_width="match_parent"
-                    android:layout_height="160dp"
-                    android:layout_gravity="center"
-                    android:src="@drawable/template" />
-                <!-- Front Layout Goes Here -->
-                <ImageView
-                    android:id="@+id/card4image2"
-                    android:layout_width="match_parent"
-                    android:layout_height="200dp"
-                    android:layout_gravity="center"
-                    android:src="@drawable/cycling">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="230dp"
+                    android:layout_marginTop="0dp"
+                    android:text="a-TIMELINE"
+                    android:textColor="#fff" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="68dp"
+                    android:layout_marginTop="0dp"
+                    android:text="PERSONAL"
+                    android:textColor="#fff" />
 
-                </ImageView>
-                <!--card4 contents -->
-                <RelativeLayout
-                    android:id="@+id/layout4"
-                    android:visibility="invisible"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <ImageView
-                        android:layout_width="38dp"
-                        android:layout_height="40dp"
-                        android:layout_alignParentStart="true"
-                        android:layout_alignParentTop="true"
-                        android:layout_marginStart="25dp"
-                        android:layout_marginTop="26dp"
-                        android:src="@drawable/star" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-
-
-                        android:layout_alignParentTop="true"
-                        android:layout_marginStart="75dp"
-                        android:layout_marginTop="25dp"
-                        android:text="CYCLING !"
-                        android:textColor="#ffffff"
-                        android:textSize="30dp" />
-
-                    <TextView
-                        android:id="@+id/total4"
-                        android:layout_width="69dp"
-                        android:layout_height="43dp"
-
-
-                        android:layout_alignParentEnd="true"
-                        android:layout_marginTop="26dp"
-                        android:layout_marginEnd="64dp"
-                        android:text="1724"
-                        android:textColor="#ffffff"
-                        android:textSize="30dp" />
-
-                    <TextView
-                        android:layout_width="100dp"
-                        android:layout_height="43dp"
-
-
-                        android:layout_alignParentEnd="true"
-                        android:layout_alignParentBottom="true"
-                        android:layout_marginTop="26dp"
-                        android:layout_marginEnd="216dp"
-                        android:layout_marginBottom="38dp"
-                        android:text="2000 Steps"
-                        android:textColor="#ffffff"
-                        android:textSize="15dp" />
-
-                    <ImageView
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
-                        android:layout_alignParentStart="true"
-                        android:layout_alignParentTop="true"
-                        android:layout_alignParentBottom="true"
-                        android:layout_marginStart="28dp"
-                        android:layout_marginTop="106dp"
-                        android:layout_marginBottom="13dp"
-                        android:src="@drawable/progress" />
-
-                    <Chronometer
-                        android:id="@+id/chronometer4"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-
-                        android:layout_alignParentEnd="true"
-                        android:layout_alignParentBottom="true"
-                        android:layout_marginEnd="230dp"
-                        android:layout_marginBottom="25dp"
-                        android:textColor="#ffffff"
-                        android:textSize="15sp" />
-
-                    <ImageView
-                        android:layout_width="23dp"
-                        android:layout_height="31dp"
-                        android:layout_alignParentStart="true"
-                        android:layout_alignParentTop="true"
-                        android:layout_alignParentBottom="true"
-                        android:layout_marginStart="148dp"
-                        android:layout_marginTop="111dp"
-                        android:layout_marginBottom="17dp"
-                        android:src="@drawable/total" />
-
-                    <TextView
-                        android:id="@+id/calories4"
-                        android:layout_width="100dp"
-                        android:layout_height="43dp"
-                        android:layout_alignParentEnd="true"
-                        android:layout_alignParentBottom="true"
-                        android:layout_marginTop="26dp"
-                        android:layout_marginEnd="74dp"
-                        android:layout_marginBottom="1dp"
-                        android:text="1295 cal."
-                        android:textColor="#ffffff"
-                        android:textSize="15dp" />
-
-                    <ImageView
-                        android:layout_width="23dp"
-                        android:layout_height="31dp"
-                        android:layout_alignParentStart="true"
-                        android:layout_alignParentTop="true"
-                        android:layout_alignParentBottom="true"
-                        android:layout_marginStart="281dp"
-                        android:layout_marginTop="111dp"
-                        android:layout_marginBottom="17dp"
-                        android:src="@drawable/coins" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-
-
-                        android:layout_alignParentEnd="true"
-                        android:layout_alignParentBottom="true"
-                        android:layout_marginTop="26dp"
-                        android:layout_marginEnd="37dp"
-                        android:layout_marginBottom="23dp"
-                        android:text="2"
-                        android:textColor="#ffffff"
-                        android:textSize="15dp" />
-
-
-                </RelativeLayout>
-                <!-- complete -->
             </RelativeLayout>
+          <LinearLayout
+              android:paddingTop="30dp"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+              <LinearLayout
+                  android:layout_width="match_parent"
+                  android:layout_height="100dp"
+                  android:orientation="horizontal"
+                  android:layout_weight="3">
+                  <ImageView
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:layout_weight="1"
+                      android:src="@drawable/insta1"/>
+                  <ImageView
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:layout_weight="1"
+                      android:src="@drawable/insta2"/>
+                  <ImageView
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:layout_weight="1"
+                      android:src="@drawable/insta3"/>
+              </LinearLayout>
+              <LinearLayout
+                  android:paddingTop="30dp"
+                  android:layout_width="match_parent"
+                  android:layout_height="100dp"
+                  android:orientation="horizontal"
+                  android:layout_weight="3">
+                  <ImageView
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:layout_weight="1"
+                      android:src="@drawable/insta1"/>
+                  <ImageView
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:layout_weight="1"
+                      android:src="@drawable/insta2"/>
+                  <ImageView
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:layout_weight="1"
+                      android:src="@drawable/insta3"/>
+              </LinearLayout>
 
+
+          </LinearLayout>
 
 
         </LinearLayout>
