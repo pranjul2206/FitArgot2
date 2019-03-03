@@ -1,5 +1,6 @@
 package in.ac.ksit.android.fitargot.Activity;
 
+import android.content.ComponentName;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -34,8 +35,10 @@ public class ChallangeActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent launchIntent=getPackageManager().getLaunchIntentForPackage("com.dvzczx.cascac");
-                startActivity(launchIntent);
+               // Intent launchIntent=getPackageManager().getLaunchIntentForPackage("com.dvzczx.cascac");
+                Intent intent=new Intent();
+                intent.setComponent(new ComponentName("com.sih.pronlwf","com.unity3d.player.UnityPlayerActivity"));
+                startActivity(intent);
             }
         });
 
@@ -44,4 +47,3 @@ public class ChallangeActivity extends AppCompatActivity {
     }
 
 }
-3
