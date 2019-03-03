@@ -354,7 +354,13 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                 calla4();
             }
         });
-
+       r2.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View view) {
+               Intent intent=new Intent(MainActivity.this,FoodsActivity.class);
+               startActivity(intent);
+           }
+       });
 
     }
     //sensors functions
