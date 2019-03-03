@@ -28,6 +28,8 @@
             android:orientation="vertical"
             android:padding="10dp">
 
+
+
             <!-- card 1 -->
             <RelativeLayout
                 android:layout_width="350dp"

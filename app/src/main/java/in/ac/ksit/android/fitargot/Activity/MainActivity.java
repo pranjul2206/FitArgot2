@@ -1,6 +1,7 @@
 package in.ac.ksit.android.fitargot.Activity;
 
 import android.Manifest;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -82,7 +83,6 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     private PermissionUtil permissionUtil;
     private CardView playSport;
     private GoogleApiClient googleApiClient;
-    LinearLayout challangeprjayga;
     int images[]={R.drawable.exercise1,R.drawable.exercise2,R.drawable.exercise3,R.drawable.exercise4};
     int i=0,pieStepVAR=0,playbutton=0,imagestate=0;
     float value=0;
@@ -93,7 +93,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     WaveLoadingView waveLoadingView2,waveLoadingView3,waveLoadingView4;
     TextView t,pieLesft,option1text1;
     RelativeLayout r,r1,r2,r3;
-    ImageView step,calories,caloriesin,improvement,SelectedPic,playoption1,prevbttn,nextbttn,joinbttn,temp,exercise;
+    ImageView step,calories,caloriesin,improvement,SelectedPic,playoption1,prevbttn,nextbttn,joinbttn,temp,exercise,challangesprjarehai,arcamera;
     String s[]={"steps","calories","something","improvements"};
     FlipperLayout flipper;
 
@@ -141,11 +141,13 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         nextbttn=(ImageView)findViewById(R.id.nextbttn);
         joinbttn=(ImageView)findViewById(R.id.joinbttn);
         exercise=(ImageView)findViewById(R.id.exerciseimage);
+        arcamera=(ImageView)findViewById(R.id.arcamera);
+        challangesprjarehai=(ImageView)findViewById(R.id.challangesprjarehai);
         t=(TextView)findViewById(R.id.leftover);
         option1text1=(TextView)findViewById(R.id.option1text1);
         waveLoadingView2=(WaveLoadingView)findViewById(R.id.waveLoadingView2);
         waveLoadingView3=(WaveLoadingView)findViewById(R.id.waveLoadingView3);
-        challangeprjayga=(LinearLayout)findViewById(R.id.challangeprjayga);
+
 
 
 
@@ -203,6 +205,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 //        startActivity(intent2);
 //           Intent intent=new Intent(this,FoodsActivity.class);
 //           startActivity(intent);
+
         permissions.add(Manifest.permission.ACCESS_FINE_LOCATION);
         permissions.add(Manifest.permission.ACCESS_COARSE_LOCATION);
 
@@ -218,7 +221,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
             Intent intent2=new Intent(this,LoginActivity.class);
             startActivity(intent2);
-
+            finish();
 
         }else{
 
@@ -259,10 +262,10 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
             stepsinoption1 = stepm.getDefaultSensor(Sensor.TYPE_STEP_COUNTER);
 
             stepm.registerListener(listener_light, light, SensorManager.SENSOR_DELAY_FASTEST);
-            challangeprjayga.setOnClickListener(new View.OnClickListener() {
+            challangesprjarehai.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                   challangeprjaygamethod();
+                    challangeprjaygamethod();
                 }
             });
             playoption1.setOnClickListener(new View.OnClickListener() {
@@ -304,6 +307,14 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                 @Override
                 public void onClick(View view) {
                     joinbttn.setImageResource(R.drawable.correctbttn);
+                }
+            });
+            arcamera.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent=new Intent();
+                    intent.setComponent(new ComponentName("com.sih.pronlwf","com.unity3d.player.UnityPlayerActivity"));
+                    startActivity(intent);
                 }
             });
         }
