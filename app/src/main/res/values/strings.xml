@@ -35,7 +35,22 @@
         <item>Basket Ball</item>
     </string-array>
 
+    <string-array name="food_arrays">
+        <item>Dosa</item>
+        <item>Chapati</item>
+        <item>Burger</item>
+        <item>Rice</item>
+        <item>sushi</item>
+        <item>Sandwich</item>
+        <item>pizza</item>
+    </string-array>
+
     <string name="title_activity_sports">SportsActivity</string>
     <string name="title_activity_challange">ChallangeActivity</string>
     <string name="title_activity_create_sport">CreateSportActivity</string>
+    <string name="title_activity_foods">FoodsActivity</string>
+    <string name="breakfast">Breakfast</string>
+    <string name="lunch">Lunch</string>
+    <string name="eveninglight">Evening Light</string>
+    <string name="dinner">Dinner</string>
 </resources>

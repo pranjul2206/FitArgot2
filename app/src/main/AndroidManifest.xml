@@ -5,7 +5,8 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -13,8 +14,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
-        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
-        <activity android:name=".Activity.socialnetwork"></activity>
+        <activity android:name=".Activity.socialnetwork" />
+
+
         <activity android:name=".Activity.pokemongo" />
         <activity android:name=".Activity.gameArgot" />
         <activity android:name=".Activity.selfChallange" />
@@ -94,8 +96,12 @@
         <service
             android:name=".BackgroundUpdater"
             android:enabled="true"
-            android:exported="true"></service>
+            android:exported="true" />
 
+        <activity
+            android:name=".Activity.FoodsActivity"
+            android:label="@string/title_activity_foods"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

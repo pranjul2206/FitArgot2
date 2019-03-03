@@ -74,7 +74,7 @@ import static com.facebook.FacebookSdk.getApplicationContext;
 
 
 public class MainActivity extends AppCompatActivity implements OnMapReadyCallback,GoogleApiClient.ConnectionCallbacks,
-        GoogleApiClient.OnConnectionFailedListener, LocationListener,View.OnClickListener {
+    GoogleApiClient.OnConnectionFailedListener, LocationListener,View.OnClickListener {
     static ArrayList<String> permissions=new ArrayList<String>();
     private DrawerLayout mDrawerLayout;
     private NavigationView navigationView;
@@ -153,6 +153,8 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         a3=(CardView)findViewById(R.id.modiCARD3);
         a4=(CardView)findViewById(R.id.modiCARD4);
 
+
+
         //--------SLIDE IMAGE
         flipper=(FlipperLayout)findViewById(R.id.flipper);
         setLayout();
@@ -203,6 +205,11 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         setContentView(R.layout.activity_main);
 
         Log.d(TAG,"going to login");
+//        Intent intent2=new Intent(this,LoginActivity.class);
+//        startActivity(intent2);
+//           Intent intent=new Intent(this,FoodsActivity.class);
+//           startActivity(intent);
+
         permissions.add(Manifest.permission.ACCESS_FINE_LOCATION);
         permissions.add(Manifest.permission.ACCESS_COARSE_LOCATION);
 
